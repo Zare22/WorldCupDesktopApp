@@ -19,6 +19,7 @@ namespace WorldCupWindowsForms
 {
     public partial class MainForm : Form
     {
+        DataManager manager = new DataManager();
         public MainForm()
         {
             InitializeComponent();
@@ -26,13 +27,26 @@ namespace WorldCupWindowsForms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            TeamManager teamManager = new TeamManager();
-            var teams = teamManager.Players;
+            var teams = manager.TeamsFromResults;
             foreach (var t in teams)
             {
-                comboBox1.Items.Add(t.Name);
+                ddlTeams.Items.Add(t.ToString());
             }
-            comboBox1.Items.Add(teams.Count());
+        }
+
+        private void ddlTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbPlayers.Items.Clear();
+            string team = ddlTeams.SelectedItem.ToString();
+
+            manager.Team = team.Substring(0, team.LastIndexOf('('));
+            var players = manager.Players;
+
+            foreach (var p in players)
+            {
+                lbPlayers.Items.Add(p.Name);
+            }
+            
         }
     }
 }

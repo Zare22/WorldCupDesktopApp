@@ -28,24 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ddlTeams = new System.Windows.Forms.ComboBox();
+            this.lbPlayers = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // ddlTeams
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(264, 178);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(301, 28);
-            this.comboBox1.TabIndex = 0;
+            this.ddlTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlTeams.FormattingEnabled = true;
+            this.ddlTeams.Location = new System.Drawing.Point(573, 90);
+            this.ddlTeams.Name = "ddlTeams";
+            this.ddlTeams.Size = new System.Drawing.Size(301, 28);
+            this.ddlTeams.TabIndex = 0;
+            this.ddlTeams.SelectedIndexChanged += new System.EventHandler(this.ddlTeams_SelectedIndexChanged);
+            // 
+            // lbPlayers
+            // 
+            this.lbPlayers.FormattingEnabled = true;
+            this.lbPlayers.ItemHeight = 20;
+            this.lbPlayers.Location = new System.Drawing.Point(46, 167);
+            this.lbPlayers.Name = "lbPlayers";
+            this.lbPlayers.Size = new System.Drawing.Size(441, 484);
+            this.lbPlayers.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(1446, 704);
+            this.Controls.Add(this.lbPlayers);
+            this.Controls.Add(this.ddlTeams);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -55,7 +67,8 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ddlTeams;
+        private System.Windows.Forms.ListBox lbPlayers;
     }
 }
 

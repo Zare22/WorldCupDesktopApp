@@ -9,7 +9,7 @@ namespace DataLayer.Constants
     public static class APIConstantsMen
     {
         public const string TEAMS_RESULTS = "http://world-cup-json-2018.herokuapp.com/teams/results";
-        public const string MATCHES = "https://world-cup-json-2018.herokuapp.com/matches";
-        public const string COUNTRY_BY_CODE = "https://world-cup-json-2018.herokuapp.com/matches/country?fifa_code=";
+        public const string MATCHES = "http://world-cup-json-2018.herokuapp.com/matches";
+        public const string COUNTRY_BY_CODE = "http://world-cup-json-2018.herokuapp.com/matches/country?fifa_code=";
     }
 }
