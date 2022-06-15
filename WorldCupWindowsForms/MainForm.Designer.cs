@@ -40,7 +40,7 @@
             this.ddlTeams.Name = "ddlTeams";
             this.ddlTeams.Size = new System.Drawing.Size(301, 28);
             this.ddlTeams.TabIndex = 0;
-            this.ddlTeams.SelectedIndexChanged += new System.EventHandler(this.ddlTeams_SelectedIndexChanged);
+            this.ddlTeams.SelectedIndexChanged += new System.EventHandler(this.ddlTeams_SelectedIndexChangedAsync);
             // 
             // lbPlayers
             // 

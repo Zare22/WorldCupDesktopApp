@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace DataLayer.Repository
 {
@@ -40,6 +41,40 @@ namespace DataLayer.Repository
                 var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
                 return Match.FromJson(apiResult.Content);
             });
+        }
+
+
+        //Pitati profesora
+        public Task<ISet<Player>> GetPlayers(/*[Optional]*/ string fifaCode)
+        {
+            return Task.Run(async () =>
+            {
+                var apiClient = new RestClient($"{APIConstantsMen.COUNTRY_BY_CODE}{fifaCode}");
+                var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
+                var matches = Match.FromJson(apiResult.Content);
+                return GetCountryPlayers(matches, fifaCode);
+            });
+        }
+
+        private ISet<Player> GetCountryPlayers(IList<Match> matches, /*[Optional]*/ string fifaCode)
+        {
+            var players = new HashSet<Player>();
+            foreach (var m in matches)
+            {
+                if (m.HomeTeam.Code == fifaCode)
+                {
+                    players = players.
+                        Concat(m.HomeTeamStatistics.StartingEleven).
+                        Concat(m.HomeTeamStatistics.Substitutes).ToHashSet();
+                }
+                else
+                {
+                    players = players.
+                        Concat(m.AwayTeamStatistics.StartingEleven).
+                        Concat(m.AwayTeamStatistics.Substitutes).ToHashSet();
+                }
+            }
+            return players;
         }
     }
 }

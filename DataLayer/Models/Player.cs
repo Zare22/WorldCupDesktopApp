@@ -29,29 +29,8 @@ namespace DataLayer.Models
 		public Position Position { get; set; }
         public int CompareTo(Player other) => GoalsScored.CompareTo(other.GoalsScored);
 
-        public override bool Equals(object obj)
-        {
-            return obj is Player player &&
-                   GoalsScored == player.GoalsScored &&
-                   YellowCards == player.YellowCards &&
-                   ImagePath == player.ImagePath &&
-                   Name == player.Name &&
-                   IsCaptain == player.IsCaptain &&
-                   ShirtNumber == player.ShirtNumber &&
-                   Position == player.Position;
-        }
+        public override bool Equals(object obj) => obj is Player player && Name == player.Name;
 
-        public override int GetHashCode()
-        {
-            int hashCode = -1581627149;
-            hashCode = hashCode * -1521134295 + GoalsScored.GetHashCode();
-            hashCode = hashCode * -1521134295 + YellowCards.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ImagePath);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
-            hashCode = hashCode * -1521134295 + IsCaptain.GetHashCode();
-            hashCode = hashCode * -1521134295 + ShirtNumber.GetHashCode();
-            hashCode = hashCode * -1521134295 + Position.GetHashCode();
-            return hashCode;
-        }
+        public override int GetHashCode() => 539060726 + EqualityComparer<string>.Default.GetHashCode(Name);
     }
 }

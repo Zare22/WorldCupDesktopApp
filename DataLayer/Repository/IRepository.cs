@@ -12,5 +12,6 @@ namespace DataLayer.Repository
         Task<IList<TeamFromResults>> GetAllTeams();
         Task<IList<Match>> GetAllMatches();
         Task<IList<Match>> GetMatchesByCode(string fifaCode);
+        Task<ISet<Player>> GetPlayers(string fifaCode);
     }
 }
