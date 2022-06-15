@@ -43,8 +43,6 @@ namespace DataLayer.Repository
             });
         }
 
-
-        //Pitati profesora
         public Task<ISet<Player>> GetPlayers(/*[Optional]*/ string fifaCode)
         {
             return Task.Run(async () =>
