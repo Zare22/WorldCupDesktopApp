@@ -23,7 +23,8 @@ namespace DataLayer.JsonHandling
                 case "goal-own":
                     return TypeOfEvent.GoalOwn;
                 case "goal-penalty":
-                    return TypeOfEvent.GoalPenalty;
+                    //Changed to TypeOfEvent.Goal for easier checking
+                    return TypeOfEvent.Goal;
                 case "red-card":
                     return TypeOfEvent.RedCard;
                 case "substitution-in":
@@ -33,7 +34,8 @@ namespace DataLayer.JsonHandling
                 case "yellow-card":
                     return TypeOfEvent.YellowCard;
                 case "yellow-card-second":
-                    return TypeOfEvent.YellowCardSecond;
+                    //Changed to TypeOfEvent.YellowCard for easier checking
+                    return TypeOfEvent.YellowCard;
             }
             throw new Exception("Cannot unmarshal type TypeOfEvent");
         }

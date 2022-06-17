@@ -50,29 +50,29 @@ namespace DataLayer.Repository
                 var apiClient = new RestClient($"{APIConstantsMen.COUNTRY_BY_CODE}{fifaCode}");
                 var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
                 var matches = Match.FromJson(apiResult.Content);
-                return GetCountryPlayers(matches, fifaCode);
+                return Player.GetPlayers(matches, fifaCode);
             });
         }
 
-        private ISet<Player> GetCountryPlayers(IList<Match> matches, /*[Optional]*/ string fifaCode)
-        {
-            var players = new HashSet<Player>();
-            foreach (var m in matches)
-            {
-                if (m.HomeTeam.Code == fifaCode)
-                {
-                    players = players.
-                        Concat(m.HomeTeamStatistics.StartingEleven).
-                        Concat(m.HomeTeamStatistics.Substitutes).ToHashSet();
-                }
-                else
-                {
-                    players = players.
-                        Concat(m.AwayTeamStatistics.StartingEleven).
-                        Concat(m.AwayTeamStatistics.Substitutes).ToHashSet();
-                }
-            }
-            return players;
-        }
+        //private static ISet<Player> GetCountryPlayers(IList<Match> matches, /*[Optional]*/ string fifaCode)
+        //{
+        //    var players = new HashSet<Player>();
+        //    foreach (var m in matches)
+        //    {
+        //        if (m.HomeTeam.Code == fifaCode)
+        //        {
+        //            players = players.
+        //                Concat(m.HomeTeamStatistics.StartingEleven).
+        //                Concat(m.HomeTeamStatistics.Substitutes).ToHashSet();
+        //        }
+        //        else
+        //        {
+        //            players = players.
+        //                Concat(m.AwayTeamStatistics.StartingEleven).
+        //                Concat(m.AwayTeamStatistics.Substitutes).ToHashSet();
+        //        }
+        //    }
+        //    return players;
+        //}
     }
 }

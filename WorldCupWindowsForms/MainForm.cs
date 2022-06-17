@@ -21,7 +21,6 @@ namespace WorldCupWindowsForms
     public partial class MainForm : Form
     {
         private readonly Manager manager = new Manager();
-        //private readonly IRepository repo = RepositoryFactory.GetRepository();
         public MainForm()
         {
             InitializeComponent();
@@ -35,12 +34,17 @@ namespace WorldCupWindowsForms
         private async void ddlTeams_SelectedIndexChangedAsync(object sender, EventArgs e)
         {
             lbPlayers.Items.Clear();
+            pnlPlayers.Controls.Clear();
+
             string team = ddlTeams.SelectedItem.ToString();
             string fifaCode = team.Substring(team.LastIndexOf('(') + 1, 3);
+
             var players = await manager.GetPlayers(fifaCode);
-            foreach (var p in players)
+            var sortedPlayers = new SortedSet<Player>(players);
+
+            foreach (var p in sortedPlayers.OrderByDescending(p => p.YellowCards))
             {
-                lbPlayers.Items.Add(p.Name);
+                lbPlayers.Items.Add($"{p.Name} - {p.GoalsScored}");
             }
             foreach (var p in players)
             {
