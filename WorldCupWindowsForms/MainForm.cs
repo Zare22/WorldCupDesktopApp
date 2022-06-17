@@ -40,9 +40,9 @@ namespace WorldCupWindowsForms
             string fifaCode = team.Substring(team.LastIndexOf('(') + 1, 3);
 
             var players = await manager.GetPlayers(fifaCode);
-            var sortedPlayers = new SortedSet<Player>(players);
+            var sortedPlayers = new SortedSet<Player>(players).OrderByDescending(p => p.GoalsScored);
 
-            foreach (var p in sortedPlayers.OrderByDescending(p => p.YellowCards))
+            foreach (var p in sortedPlayers)
             {
                 lbPlayers.Items.Add($"{p.Name} - {p.GoalsScored}");
             }
