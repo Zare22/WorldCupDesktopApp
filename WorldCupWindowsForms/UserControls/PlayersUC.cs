@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,14 @@ namespace WorldCupWindowsForms.UserControls
 {
     public partial class PlayersUC : UserControl
     {
-        public PlayersUC()
+        public PlayersUC(Player player)
         {
             InitializeComponent();
+
+            lblPlayerName.Text = player.Name;
+            lblShirtNumberW.Text = player.ShirtNumber.ToString();
+            lblPositionW.Text = player.Position.ToString();
+            lblCaptainW.Text = player.IsCaptain ? "Yes" : "No";
         }
     }
 }

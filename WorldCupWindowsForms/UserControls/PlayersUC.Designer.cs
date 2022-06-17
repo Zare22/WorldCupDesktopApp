@@ -34,6 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnFavoritePlayer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblShirtNumberW = new System.Windows.Forms.Label();
+            this.lblPositionW = new System.Windows.Forms.Label();
+            this.lblCaptainW = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,11 +97,41 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Pozicija:";
             // 
+            // lblShirtNumberW
+            // 
+            this.lblShirtNumberW.AutoSize = true;
+            this.lblShirtNumberW.Location = new System.Drawing.Point(210, 63);
+            this.lblShirtNumberW.Name = "lblShirtNumberW";
+            this.lblShirtNumberW.Size = new System.Drawing.Size(51, 20);
+            this.lblShirtNumberW.TabIndex = 6;
+            this.lblShirtNumberW.Text = "label3";
+            // 
+            // lblPositionW
+            // 
+            this.lblPositionW.AutoSize = true;
+            this.lblPositionW.Location = new System.Drawing.Point(210, 89);
+            this.lblPositionW.Name = "lblPositionW";
+            this.lblPositionW.Size = new System.Drawing.Size(51, 20);
+            this.lblPositionW.TabIndex = 7;
+            this.lblPositionW.Text = "label4";
+            // 
+            // lblCaptainW
+            // 
+            this.lblCaptainW.AutoSize = true;
+            this.lblCaptainW.Location = new System.Drawing.Point(210, 115);
+            this.lblCaptainW.Name = "lblCaptainW";
+            this.lblCaptainW.Size = new System.Drawing.Size(51, 20);
+            this.lblCaptainW.TabIndex = 8;
+            this.lblCaptainW.Text = "label5";
+            // 
             // PlayersUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.lblCaptainW);
+            this.Controls.Add(this.lblPositionW);
+            this.Controls.Add(this.lblShirtNumberW);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnFavoritePlayer);
             this.Controls.Add(this.label1);
@@ -121,5 +154,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFavoritePlayer;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblShirtNumberW;
+        private System.Windows.Forms.Label lblPositionW;
+        private System.Windows.Forms.Label lblCaptainW;
     }
 }

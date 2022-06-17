@@ -78,8 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\APIConstantsMen.cs" />
-    <Compile Include="Managers\TeamManager.cs" />
-    <Compile Include="Managers\PlayerManager.cs" />
+    <Compile Include="Managers\Manager.cs" />
     <Compile Include="Repository\APIRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\RepositoryFactory.cs" />
