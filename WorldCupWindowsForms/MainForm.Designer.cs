@@ -29,60 +29,88 @@
         private void InitializeComponent()
         {
             this.ddlTeams = new System.Windows.Forms.ComboBox();
-            this.lbPlayers = new System.Windows.Forms.ListBox();
             this.pnlPlayers = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblPickCountry = new System.Windows.Forms.Label();
+            this.pnlFavoritePlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // ddlTeams
             // 
+            this.ddlTeams.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ddlTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTeams.FormattingEnabled = true;
-            this.ddlTeams.Location = new System.Drawing.Point(12, 12);
+            this.ddlTeams.Location = new System.Drawing.Point(559, 95);
             this.ddlTeams.Name = "ddlTeams";
-            this.ddlTeams.Size = new System.Drawing.Size(301, 28);
+            this.ddlTeams.Size = new System.Drawing.Size(346, 28);
             this.ddlTeams.TabIndex = 0;
-            this.ddlTeams.SelectedIndexChanged += new System.EventHandler(this.ddlTeams_SelectedIndexChangedAsync);
-            // 
-            // lbPlayers
-            // 
-            this.lbPlayers.FormattingEnabled = true;
-            this.lbPlayers.ItemHeight = 20;
-            this.lbPlayers.Location = new System.Drawing.Point(12, 46);
-            this.lbPlayers.Name = "lbPlayers";
-            this.lbPlayers.Size = new System.Drawing.Size(441, 484);
-            this.lbPlayers.TabIndex = 1;
+            this.ddlTeams.SelectedIndexChanged += new System.EventHandler(this.ddlTeams_SelectedIndexChanged);
             // 
             // pnlPlayers
             // 
+            this.pnlPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPlayers.AutoScroll = true;
             this.pnlPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPlayers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.pnlPlayers.Location = new System.Drawing.Point(502, 46);
+            this.pnlPlayers.Location = new System.Drawing.Point(12, 163);
             this.pnlPlayers.Name = "pnlPlayers";
-            this.pnlPlayers.Size = new System.Drawing.Size(584, 484);
+            this.pnlPlayers.Size = new System.Drawing.Size(578, 619);
             this.pnlPlayers.TabIndex = 2;
             this.pnlPlayers.WrapContents = false;
+            // 
+            // lblPickCountry
+            // 
+            this.lblPickCountry.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPickCountry.AutoSize = true;
+            this.lblPickCountry.Location = new System.Drawing.Point(608, 72);
+            this.lblPickCountry.Name = "lblPickCountry";
+            this.lblPickCountry.Size = new System.Drawing.Size(249, 20);
+            this.lblPickCountry.TabIndex = 3;
+            this.lblPickCountry.Text = "Odaberite omiljenu reprezentaciju:";
+            // 
+            // pnlFavoritePlayers
+            // 
+            this.pnlFavoritePlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlFavoritePlayers.AutoScroll = true;
+            this.pnlFavoritePlayers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlFavoritePlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlFavoritePlayers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.pnlFavoritePlayers.Location = new System.Drawing.Point(874, 163);
+            this.pnlFavoritePlayers.Name = "pnlFavoritePlayers";
+            this.pnlFavoritePlayers.Size = new System.Drawing.Size(578, 619);
+            this.pnlFavoritePlayers.TabIndex = 3;
+            this.pnlFavoritePlayers.WrapContents = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1464, 794);
+            this.Controls.Add(this.pnlFavoritePlayers);
+            this.Controls.Add(this.lblPickCountry);
             this.Controls.Add(this.pnlPlayers);
-            this.Controls.Add(this.lbPlayers);
             this.Controls.Add(this.ddlTeams);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "World Cup";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.ComboBox ddlTeams;
-        private System.Windows.Forms.ListBox lbPlayers;
         private System.Windows.Forms.FlowLayoutPanel pnlPlayers;
+        private System.Windows.Forms.Label lblPickCountry;
+        private System.Windows.Forms.FlowLayoutPanel pnlFavoritePlayers;
     }
 }
 

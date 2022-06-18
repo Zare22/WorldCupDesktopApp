@@ -21,6 +21,8 @@ namespace WorldCupWindowsForms
     public partial class MainForm : Form
     {
         private readonly Manager manager = new Manager();
+        private PlayersUC playerControl;
+
         public MainForm()
         {
             InitializeComponent();
@@ -31,35 +33,26 @@ namespace WorldCupWindowsForms
             FillDdl();
         }
 
-        private async void ddlTeams_SelectedIndexChangedAsync(object sender, EventArgs e)
+        private void ddlTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbPlayers.Items.Clear();
             pnlPlayers.Controls.Clear();
+            FillPanelWithPlayersAsync();
+        }
 
+        private async void FillPanelWithPlayersAsync()
+        {
             string team = ddlTeams.SelectedItem.ToString();
             string fifaCode = team.Substring(team.LastIndexOf('(') + 1, 3);
 
             var players = await manager.GetPlayers(fifaCode);
-            //var sortedPlayers = new SortedSet<Player>(players)/*.OrderByDescending(p => p.GoalsScored)*/;
 
-            foreach (var p in players)
-            {
-                lbPlayers.Items.Add($"{p.Name} - {p.GoalsScored}");
-            }
-            foreach (var p in players)
-            {
-                var playerControl = new PlayersUC(p);
-                pnlPlayers.Controls.Add(playerControl);
-            }
+            players.ToList().ForEach(p => pnlPlayers.Controls.Add(playerControl = new PlayersUC(p)));
         }
 
         private async void FillDdl()
         {
             var teams = await manager.GetAllTeams();
-            foreach (var t in teams)
-            {
-                ddlTeams.Items.Add(t);
-            }
+            teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
         }
     }
 }
