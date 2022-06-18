@@ -37,7 +37,7 @@
             // 
             this.ddlTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTeams.FormattingEnabled = true;
-            this.ddlTeams.Location = new System.Drawing.Point(573, 90);
+            this.ddlTeams.Location = new System.Drawing.Point(12, 12);
             this.ddlTeams.Name = "ddlTeams";
             this.ddlTeams.Size = new System.Drawing.Size(301, 28);
             this.ddlTeams.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             this.lbPlayers.FormattingEnabled = true;
             this.lbPlayers.ItemHeight = 20;
-            this.lbPlayers.Location = new System.Drawing.Point(46, 167);
+            this.lbPlayers.Location = new System.Drawing.Point(12, 46);
             this.lbPlayers.Name = "lbPlayers";
             this.lbPlayers.Size = new System.Drawing.Size(441, 484);
             this.lbPlayers.TabIndex = 1;
@@ -57,9 +57,9 @@
             this.pnlPlayers.AutoScroll = true;
             this.pnlPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPlayers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.pnlPlayers.Location = new System.Drawing.Point(837, 167);
+            this.pnlPlayers.Location = new System.Drawing.Point(502, 46);
             this.pnlPlayers.Name = "pnlPlayers";
-            this.pnlPlayers.Size = new System.Drawing.Size(584, 496);
+            this.pnlPlayers.Size = new System.Drawing.Size(584, 484);
             this.pnlPlayers.TabIndex = 2;
             this.pnlPlayers.WrapContents = false;
             // 
@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1446, 704);
+            this.ClientSize = new System.Drawing.Size(1464, 794);
             this.Controls.Add(this.pnlPlayers);
             this.Controls.Add(this.lbPlayers);
             this.Controls.Add(this.ddlTeams);

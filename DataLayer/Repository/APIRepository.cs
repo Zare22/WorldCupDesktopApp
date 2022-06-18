@@ -50,7 +50,7 @@ namespace DataLayer.Repository
                 var apiClient = new RestClient($"{APIConstantsMen.COUNTRY_BY_CODE}{fifaCode}");
                 var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
                 var matches = Match.FromJson(apiResult.Content);
-                return Player.GetPlayers(matches, fifaCode);
+                return Player.GetPlayers(matches[0], matches,  fifaCode);
             });
         }
 

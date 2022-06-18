@@ -21,6 +21,16 @@ namespace WorldCupWindowsForms.UserControls
             lblShirtNumberW.Text = player.ShirtNumber.ToString();
             lblPositionW.Text = player.Position.ToString();
             lblCaptainW.Text = player.IsCaptain ? "Yes" : "No";
+            
+        }
+
+        public void SortByGoals()
+        {
+            if (this.Parent == null)
+            {
+                return;
+            }
+            var index = this.Parent.Controls.GetChildIndex(this);
         }
     }
 }

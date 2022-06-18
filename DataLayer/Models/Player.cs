@@ -37,24 +37,24 @@ namespace DataLayer.Models
 
 
         //Methods
-        internal static ISet<Player> GetPlayers(IList<Match> matches, string fifaCode)
+        internal static ISet<Player> GetPlayers(Match match, IList<Match> matches, string fifaCode)
         {
             var players = new HashSet<Player>();
-            foreach (var m in matches)
-            {
-                if (m.HomeTeam.Code == fifaCode)
+            //foreach (var m in matches)
+            //{
+                if (match.HomeTeam.Code == fifaCode)
                 {
                     players = players.
-                        Concat(m.HomeTeamStatistics.StartingEleven).
-                        Concat(m.HomeTeamStatistics.Substitutes).ToHashSet();
+                        Concat(match.HomeTeamStatistics.StartingEleven).
+                        Concat(match.HomeTeamStatistics.Substitutes).ToHashSet();
                 }
                 else
                 {
                     players = players.
-                        Concat(m.AwayTeamStatistics.StartingEleven).
-                        Concat(m.AwayTeamStatistics.Substitutes).ToHashSet();
+                        Concat(match.AwayTeamStatistics.StartingEleven).
+                        Concat(match.AwayTeamStatistics.Substitutes).ToHashSet();
                 }
-            }
+            //}
             players.ToList().ForEach(p => p.GoalsAndYellows(p, matches, fifaCode));
             return players;
         }
