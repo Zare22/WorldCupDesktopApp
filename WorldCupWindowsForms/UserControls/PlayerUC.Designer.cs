@@ -1,6 +1,6 @@
 ﻿namespace WorldCupWindowsForms.UserControls
 {
-    partial class PlayersUC
+    partial class PlayerUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -124,7 +124,7 @@
             this.lblCaptainW.TabIndex = 8;
             this.lblCaptainW.Text = "label5";
             // 
-            // PlayersUC
+            // PlayerUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,8 +138,9 @@
             this.Controls.Add(this.lblShirtNumber);
             this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.imgPlayer);
-            this.Name = "PlayersUC";
+            this.Name = "PlayerUC";
             this.Size = new System.Drawing.Size(500, 150);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerUC_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

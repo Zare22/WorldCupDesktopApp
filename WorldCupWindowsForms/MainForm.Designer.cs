@@ -49,6 +49,7 @@
             // 
             // pnlPlayers
             // 
+            this.pnlPlayers.AllowDrop = true;
             this.pnlPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -75,11 +76,11 @@
             // 
             // pnlFavoritePlayers
             // 
+            this.pnlFavoritePlayers.AllowDrop = true;
             this.pnlFavoritePlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFavoritePlayers.AutoScroll = true;
-            this.pnlFavoritePlayers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlFavoritePlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlFavoritePlayers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlFavoritePlayers.Location = new System.Drawing.Point(874, 163);
@@ -87,6 +88,8 @@
             this.pnlFavoritePlayers.Size = new System.Drawing.Size(578, 619);
             this.pnlFavoritePlayers.TabIndex = 3;
             this.pnlFavoritePlayers.WrapContents = false;
+            this.pnlFavoritePlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlFavoritePlayers_DragDrop);
+            this.pnlFavoritePlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlFavoritePlayers_DragEnter);
             // 
             // MainForm
             // 

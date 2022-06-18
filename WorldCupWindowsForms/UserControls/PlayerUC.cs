@@ -11,9 +11,12 @@ using System.Windows.Forms;
 
 namespace WorldCupWindowsForms.UserControls
 {
-    public partial class PlayersUC : UserControl
+    public partial class PlayerUC : UserControl
     {
-        public PlayersUC(Player player)
+        //private Control controlStartedDnD;
+        //private bool successDnD;
+
+        public PlayerUC(Player player)
         {
             InitializeComponent();
 
@@ -24,13 +27,10 @@ namespace WorldCupWindowsForms.UserControls
             
         }
 
-        public void SortByGoals()
+        private void PlayerUC_MouseDown(object sender, MouseEventArgs e)
         {
-            if (this.Parent == null)
-            {
-                return;
-            }
-            var index = this.Parent.Controls.GetChildIndex(this);
+            PlayerUC player = (PlayerUC)sender;
+            player.DoDragDrop(player, DragDropEffects.Move | DragDropEffects.Copy);
         }
     }
 }

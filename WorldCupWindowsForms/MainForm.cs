@@ -21,7 +21,7 @@ namespace WorldCupWindowsForms
     public partial class MainForm : Form
     {
         private readonly Manager manager = new Manager();
-        private PlayersUC playerControl;
+        private PlayerUC playerControl;
 
         public MainForm()
         {
@@ -46,13 +46,28 @@ namespace WorldCupWindowsForms
 
             var players = await manager.GetPlayers(fifaCode);
 
-            players.ToList().ForEach(p => pnlPlayers.Controls.Add(playerControl = new PlayersUC(p)));
+            players.ToList().ForEach(p => pnlPlayers.Controls.Add(playerControl = new PlayerUC(p)));
         }
 
         private async void FillDdl()
         {
             var teams = await manager.GetAllTeams();
             teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
+        }
+
+        private void pnlFavoritePlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(PlayerUC)))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else e.Effect = DragDropEffects.None;
+        }
+
+        private void pnlFavoritePlayers_DragDrop(object sender, DragEventArgs e)
+        {
+            var player = (PlayerUC)e.Data.GetData(typeof(PlayerUC));
+            pnlFavoritePlayers.Controls.Add(player);
         }
     }
 }
