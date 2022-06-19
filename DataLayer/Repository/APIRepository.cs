@@ -53,26 +53,5 @@ namespace DataLayer.Repository
                 return Player.GetPlayers(matches[0], matches,  fifaCode);
             });
         }
-
-        //private static ISet<Player> GetCountryPlayers(IList<Match> matches, /*[Optional]*/ string fifaCode)
-        //{
-        //    var players = new HashSet<Player>();
-        //    foreach (var m in matches)
-        //    {
-        //        if (m.HomeTeam.Code == fifaCode)
-        //        {
-        //            players = players.
-        //                Concat(m.HomeTeamStatistics.StartingEleven).
-        //                Concat(m.HomeTeamStatistics.Substitutes).ToHashSet();
-        //        }
-        //        else
-        //        {
-        //            players = players.
-        //                Concat(m.AwayTeamStatistics.StartingEleven).
-        //                Concat(m.AwayTeamStatistics.Substitutes).ToHashSet();
-        //        }
-        //    }
-        //    return players;
-        //}
     }
 }
