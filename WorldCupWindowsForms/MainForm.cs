@@ -22,6 +22,7 @@ namespace WorldCupWindowsForms
     {
         private readonly Manager manager = new Manager();
         private PlayerUC playerControl;
+        
 
         public MainForm()
         {
@@ -55,19 +56,32 @@ namespace WorldCupWindowsForms
             teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
         }
 
-        private void pnlFavoritePlayers_DragEnter(object sender, DragEventArgs e)
+        private void Panels_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(PlayerUC)))
             {
                 e.Effect = DragDropEffects.Copy;
             }
-            else e.Effect = DragDropEffects.None;
+            else
+                e.Effect = DragDropEffects.None;
         }
 
         private void pnlFavoritePlayers_DragDrop(object sender, DragEventArgs e)
         {
             var player = (PlayerUC)e.Data.GetData(typeof(PlayerUC));
             pnlFavoritePlayers.Controls.Add(player);
+        }
+
+        private void pnlPlayers_DragDrop(object sender, DragEventArgs e)
+        {
+            var player = (PlayerUC)e.Data.GetData(typeof(PlayerUC));
+            pnlPlayers.Controls.Add(player);
+        }
+
+        private void btnOpenStatisticsForm_Click(object sender, EventArgs e)
+        {
+            StatisticsForm statisticsForm = new StatisticsForm();
+            statisticsForm.ShowDialog();
         }
     }
 }
