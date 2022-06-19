@@ -28,38 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.playersStats = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.playersStats)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // playersStats
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 13);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 0;
+            this.playersStats.AllowUserToAddRows = false;
+            this.playersStats.AllowUserToDeleteRows = false;
+            this.playersStats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.playersStats.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.playersStats.ColumnHeadersHeight = 34;
+            this.playersStats.Location = new System.Drawing.Point(13, 13);
+            this.playersStats.Name = "playersStats";
+            this.playersStats.ReadOnly = true;
+            this.playersStats.RowHeadersWidth = 62;
+            this.playersStats.RowTemplate.Height = 28;
+            this.playersStats.Size = new System.Drawing.Size(543, 666);
+            this.playersStats.TabIndex = 0;
             // 
             // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 691);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.playersStats);
             this.Name = "StatisticsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Statistike <Reprezentacije>";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.StatisticsForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.playersStats)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView playersStats;
     }
 }
