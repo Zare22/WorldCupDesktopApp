@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.playersStats = new System.Windows.Forms.DataGridView();
+            this.matchesStats = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.playersStats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchesStats)).BeginInit();
             this.SuspendLayout();
             // 
             // playersStats
@@ -47,17 +49,34 @@
             this.playersStats.Size = new System.Drawing.Size(543, 666);
             this.playersStats.TabIndex = 0;
             // 
+            // matchesStats
+            // 
+            this.matchesStats.AllowUserToAddRows = false;
+            this.matchesStats.AllowUserToDeleteRows = false;
+            this.matchesStats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.matchesStats.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.matchesStats.ColumnHeadersHeight = 34;
+            this.matchesStats.Location = new System.Drawing.Point(684, 13);
+            this.matchesStats.Name = "matchesStats";
+            this.matchesStats.ReadOnly = true;
+            this.matchesStats.RowHeadersWidth = 62;
+            this.matchesStats.RowTemplate.Height = 28;
+            this.matchesStats.Size = new System.Drawing.Size(543, 666);
+            this.matchesStats.TabIndex = 1;
+            // 
             // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 691);
+            this.ClientSize = new System.Drawing.Size(1239, 691);
+            this.Controls.Add(this.matchesStats);
             this.Controls.Add(this.playersStats);
             this.Name = "StatisticsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Statistike <Reprezentacije>";
             this.Load += new System.EventHandler(this.StatisticsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.playersStats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchesStats)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -65,5 +84,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView playersStats;
+        private System.Windows.Forms.DataGridView matchesStats;
     }
 }

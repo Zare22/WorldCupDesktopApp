@@ -72,7 +72,9 @@ namespace WorldCupWindowsForms
                 return;
             }
 
-            StatisticsForm statisticsForm = new StatisticsForm(matches, players);
+            StatisticsForm statisticsForm = new StatisticsForm();
+            statisticsForm.Matches = matches;
+            statisticsForm.Players = players;
             statisticsForm.ShowDialog();
         }
 

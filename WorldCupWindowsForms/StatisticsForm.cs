@@ -13,27 +13,32 @@ namespace WorldCupWindowsForms
 {
     public partial class StatisticsForm : Form
     {
-        private IList<Match> matches;
-        private ISet<Player> players;
-        public StatisticsForm(IList<Match> matchesFromMain, ISet<Player> playersFromMain)
+        public IList<Match> Matches { get; set; }
+        public ISet<Player> Players { get; set; }
+        public StatisticsForm()
         {
             InitializeComponent();
-            LoadData(matchesFromMain, playersFromMain);
-        }
-
-        private void LoadData(IList<Match> matchesFromMain, ISet<Player> playersFromMain)
-        {
-            matches = matchesFromMain;
-            players = playersFromMain;
         }
 
         private void StatisticsForm_Load(object sender, EventArgs e)
+        {
+            FillPlayersStats(playersStats, Players);
+            FillMatchesStats(matchesStats, Matches);
+
+        }
+
+        private void FillMatchesStats(DataGridView playersStats, IList<Match> matches)
+        {
+
+        }
+
+        private void FillPlayersStats(DataGridView playersStats, ISet<Player> players)
         {
             playersStats.Columns.Add("name", "Ime");
             playersStats.Columns.Add("goals", "Zabijeni golovi");
             playersStats.Columns.Add("yellows", "Žuti kartoni");
 
-            foreach (var p in players)
+            foreach (var p in Players)
             {
                 playersStats.Rows.Add(p.Name, p.GoalsScored, p.YellowCards);
             }
