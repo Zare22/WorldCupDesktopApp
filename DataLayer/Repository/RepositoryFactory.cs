@@ -17,6 +17,5 @@ namespace DataLayer.Repository
             else
                 return new FileRepository();
         }
-        //public static IRepository GetFileRepository() => new FileRepository();
     }
 }
