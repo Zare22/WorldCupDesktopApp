@@ -20,7 +20,7 @@ namespace DataLayer.JsonHandling
                 TypeOfEventConverter.Singleton,
                 PositionConverter.Singleton,
                 TacticsConverter.Singleton,
-                StageNameConverter.Singleton,
+                //StageNameConverter.Singleton,
                 StatusConverter.Singleton,
                 TimeConverter.Singleton,
                 DescriptionConverter.Singleton,
