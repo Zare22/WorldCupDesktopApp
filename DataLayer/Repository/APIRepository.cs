@@ -27,7 +27,7 @@ namespace DataLayer.Repository
         {
             return Task.Run(async () =>
             {
-                var apiClient = new RestClient(APIConstantsWomen.TEAMS_RESULTS);
+                var apiClient = new RestClient(APIConstantsMen.TEAMS_RESULTS);
                 var apiResult = await apiClient.ExecuteAsync<IList<TeamFromResults>>(new RestRequest());
                 return JsonConvert.DeserializeObject<IList<TeamFromResults>>(apiResult.Content);
             });
@@ -37,7 +37,7 @@ namespace DataLayer.Repository
         {
             return Task.Run(async () =>
             {
-                var apiClient = new RestClient($"{APIConstantsWomen.MATCHES}{fifaCode}");
+                var apiClient = new RestClient($"{APIConstantsMen.MATCHES}{fifaCode}");
                 var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
                 return Match.FromJson(apiResult.Content);
             });
@@ -47,7 +47,7 @@ namespace DataLayer.Repository
         {
             return Task.Run(async () =>
             {
-                var apiClient = new RestClient($"{APIConstantsWomen.MATCHES}{fifaCode}");
+                var apiClient = new RestClient($"{APIConstantsMen.MATCHES}{fifaCode}");
                 var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
                 var matches = Match.FromJson(apiResult.Content);
                 return Player.GetPlayers(matches[0], matches,  fifaCode);

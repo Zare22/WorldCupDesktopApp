@@ -15,6 +15,7 @@ using DataLayer.JsonHandling;
 using DataLayer.Repository;
 using DataLayer.Managers;
 using WorldCupWindowsForms.UserControls;
+using System.Net.NetworkInformation;
 
 namespace WorldCupWindowsForms
 {

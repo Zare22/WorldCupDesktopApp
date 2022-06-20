@@ -8,7 +8,15 @@ namespace DataLayer.Repository
 {
     public static class RepositoryFactory
     {
-        public static IRepository GetAPIRepository() => new APIRepository();
-        public static IRepository GetFileRepository() => new FileRepository();
+        public static IRepository GetRepository(bool connection)
+        {
+            if (connection)
+            {
+                return new APIRepository();
+            }
+            else
+                return new FileRepository();
+        }
+        //public static IRepository GetFileRepository() => new FileRepository();
     }
 }
