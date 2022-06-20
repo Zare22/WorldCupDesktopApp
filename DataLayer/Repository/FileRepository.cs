@@ -13,7 +13,7 @@ namespace DataLayer.Repository
 {
     internal class FileRepository : IRepository
     {
-        public Task<IList<TeamFromResults>> GetAllTeams()
+        public Task<IList<TeamFromResults>> GetAllTeams(string championship)
         {
             return Task.Run(async () =>
             {
@@ -22,7 +22,7 @@ namespace DataLayer.Repository
             });
         }
 
-        public Task<IList<Match>> GetMatchesByCode(string fifaCode)
+        public Task<IList<Match>> GetMatchesByCode(string fifaCode, string championship)
         {
             return Task.Run(async () =>
             {
@@ -31,7 +31,7 @@ namespace DataLayer.Repository
             });
         }
 
-        public Task<ISet<Player>> GetPlayers(string fifaCode)
+        public Task<ISet<Player>> GetPlayers(string fifaCode, string championship)
         {
             return Task.Run(async () =>
             {

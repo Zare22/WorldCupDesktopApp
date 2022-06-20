@@ -9,9 +9,9 @@ namespace DataLayer.Repository
 {
     public interface IRepository
     {
-        Task<IList<TeamFromResults>> GetAllTeams();
+        Task<IList<TeamFromResults>> GetAllTeams(string championship);
         //Task<IList<Match>> GetAllMatches();
-        Task<IList<Match>> GetMatchesByCode(string fifaCode);
-        Task<ISet<Player>> GetPlayers(string fifaCode);
+        Task<IList<Match>> GetMatchesByCode(string fifaCode, string championship);
+        Task<ISet<Player>> GetPlayers(string fifaCode, string championship);
     }
 }

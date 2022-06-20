@@ -15,10 +15,12 @@ namespace DataLayer.Managers
         private readonly IRepository repository;
         private bool testConnection = new Ping().Send("www.google.com").Status == IPStatus.Success;
 
+        public string Championship { get; set; }
+
         public Manager() => repository = RepositoryFactory.GetRepository(testConnection);
 
-        public Task<IList<TeamFromResults>> GetAllTeams() => repository.GetAllTeams();
-        public Task<ISet<Player>> GetPlayers(string fifaCode) => repository.GetPlayers(fifaCode);
-        public Task<IList<Match>> GetAllMatches(string fifaCode) => repository.GetMatchesByCode(fifaCode);
+        public Task<IList<TeamFromResults>> GetAllTeams() => repository.GetAllTeams(Championship);
+        public Task<ISet<Player>> GetPlayers(string fifaCode) => repository.GetPlayers(fifaCode, Championship);
+        public Task<IList<Match>> GetAllMatches(string fifaCode) => repository.GetMatchesByCode(fifaCode, Championship);
     }
 }

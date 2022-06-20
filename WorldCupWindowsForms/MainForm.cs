@@ -21,8 +21,10 @@ namespace WorldCupWindowsForms
 {
     public partial class MainForm : Form
     {
+        private SettingsForm settingsForm = new SettingsForm();
         private readonly Manager manager = new Manager();
         private PlayerUC playerControl;
+        
 
         private ISet<Player> players;
         private IList<Match> matches;
@@ -36,8 +38,15 @@ namespace WorldCupWindowsForms
         //Main Form Work
         private async void FillDdl()
         {
+            SetChampionship();
             var teams = await manager.GetAllTeams();
             teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
+        }
+
+        private void SetChampionship()
+        {
+            string championship = settingsForm.Championship;
+            manager.Championship = championship;
         }
 
         private void ddlTeams_SelectedIndexChanged(object sender, EventArgs e)

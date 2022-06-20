@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Constants
 {
-    public static partial class APIConstantsMen
+    public static partial class APIConstants
     {
-        public const string TEAMS_RESULTS = "http://world-cup-json-2018.herokuapp.com/teams/results";
+        
+        //Men
+        public const string MEN_TEAMS = "http://world-cup-json-2018.herokuapp.com/teams/results";
         //public const string MATCHES = "http://world-cup-json-2018.herokuapp.com/matches";
-        public const string MATCHES = "http://world-cup-json-2018.herokuapp.com/matches/country?fifa_code=";
-    }
+        public const string MEN_MATCHES = "http://world-cup-json-2018.herokuapp.com/matches/country?fifa_code=";
 
-    public static partial class APIConstantsWomen
-    {
-        public const string TEAMS_RESULTS = "http://worldcup.sfg.io/teams/results";
+        //Women
+        public const string WOMEN_TEAMS = "http://worldcup.sfg.io/teams/results";
         //public const string MATCHES = "http://world-cup-json-2018.herokuapp.com/matches";
-        public const string MATCHES = "http://worldcup.sfg.io/matches/country?fifa_code=";
+        public const string WOMEN_MATCHES = "http://worldcup.sfg.io/matches/country?fifa_code=";
     }
 }

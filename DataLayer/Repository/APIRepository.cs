@@ -23,35 +23,72 @@ namespace DataLayer.Repository
         //    });
         //}
 
-        public Task<IList<TeamFromResults>> GetAllTeams()
+        public Task<IList<TeamFromResults>> GetAllTeams(string championship)
         {
-            return Task.Run(async () =>
+            if (championship == "Men")
             {
-                var apiClient = new RestClient(APIConstantsMen.TEAMS_RESULTS);
-                var apiResult = await apiClient.ExecuteAsync<IList<TeamFromResults>>(new RestRequest());
-                return JsonConvert.DeserializeObject<IList<TeamFromResults>>(apiResult.Content);
-            });
+                return Task.Run(async () =>
+                {
+                    var apiClient = new RestClient(APIConstants.MEN_TEAMS);
+                    var apiResult = await apiClient.ExecuteAsync<IList<TeamFromResults>>(new RestRequest());
+                    return JsonConvert.DeserializeObject<IList<TeamFromResults>>(apiResult.Content);
+                });
+            }
+            else
+            {
+                return Task.Run(async () =>
+                {
+                    var apiClient = new RestClient(APIConstants.WOMEN_TEAMS);
+                    var apiResult = await apiClient.ExecuteAsync<IList<TeamFromResults>>(new RestRequest());
+                    return JsonConvert.DeserializeObject<IList<TeamFromResults>>(apiResult.Content);
+                });
+            }
         }
 
-        public Task<IList<Match>> GetMatchesByCode(string fifaCode)
+        public Task<IList<Match>> GetMatchesByCode(string fifaCode, string championship)
         {
-            return Task.Run(async () =>
+            if (championship == "Men")
             {
-                var apiClient = new RestClient($"{APIConstantsMen.MATCHES}{fifaCode}");
-                var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
-                return Match.FromJson(apiResult.Content);
-            });
+                return Task.Run(async () =>
+                    {
+                        var apiClient = new RestClient($"{APIConstants.MEN_MATCHES}{fifaCode}");
+                        var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
+                        return Match.FromJson(apiResult.Content);
+                    });
+            }
+            else
+            {
+                return Task.Run(async () =>
+                {
+                    var apiClient = new RestClient($"{APIConstants.WOMEN_MATCHES}{fifaCode}");
+                    var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
+                    return Match.FromJson(apiResult.Content);
+                });
+            }
         }
 
-        public Task<ISet<Player>> GetPlayers(/*[Optional]*/ string fifaCode)
+        public Task<ISet<Player>> GetPlayers(/*[Optional]*/ string fifaCode, string championship)
         {
-            return Task.Run(async () =>
+            if (championship == "Men")
             {
-                var apiClient = new RestClient($"{APIConstantsMen.MATCHES}{fifaCode}");
-                var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
-                var matches = Match.FromJson(apiResult.Content);
-                return Player.GetPlayers(matches[0], matches,  fifaCode);
-            });
+                return Task.Run(async () =>
+                {
+                    var apiClient = new RestClient($"{APIConstants.MEN_MATCHES}{fifaCode}");
+                    var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
+                    var matches = Match.FromJson(apiResult.Content);
+                    return Player.GetPlayers(matches[0], matches, fifaCode);
+                });
+            }
+            else
+            {
+                return Task.Run(async () =>
+                {
+                    var apiClient = new RestClient($"{APIConstants.WOMEN_MATCHES}{fifaCode}");
+                    var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
+                    var matches = Match.FromJson(apiResult.Content);
+                    return Player.GetPlayers(matches[0], matches, fifaCode);
+                });
+            }
         }
     }
 }
