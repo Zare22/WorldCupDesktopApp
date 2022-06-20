@@ -15,18 +15,17 @@ namespace DataLayer.Models
         public int YellowCards { get; private set; }
         public string ImagePath { get; set; }
 
-        [JsonProperty("name")]
+        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
-        [JsonProperty("captain")]
+        [JsonProperty("captain", NullValueHandling = NullValueHandling.Ignore)]
         public bool IsCaptain { get; set; }
 
-        [JsonProperty("shirt_number")]
-        public int ShirtNumber { get; set; }
+        [JsonProperty("shirt_number", NullValueHandling = NullValueHandling.Ignore)]
+        public long? ShirtNumber { get; set; }
 
-        [JsonProperty("position")]
-        [JsonConverter(typeof(PositionConverter))]
-        public Position Position { get; set; }
+        [JsonProperty("position", NullValueHandling = NullValueHandling.Ignore)]
+        public Position? Position { get; set; }
 
 
         public int CompareTo(Player other) => Name.CompareTo(other.Name);

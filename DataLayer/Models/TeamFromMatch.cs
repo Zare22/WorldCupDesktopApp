@@ -9,17 +9,17 @@ namespace DataLayer.Models
 {
     public class TeamFromMatch
     {
-        [JsonProperty("country")]
+        [JsonProperty("country", NullValueHandling = NullValueHandling.Ignore)]
         public string Country { get; set; }
 
-        [JsonProperty("code")]
+        [JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
         public string Code { get; set; }
 
-        [JsonProperty("goals")]
-        public long Goals { get; set; }
+        [JsonProperty("goals", NullValueHandling = NullValueHandling.Ignore)]
+        public long? Goals { get; set; }
 
-        [JsonProperty("penalties")]
-        public long Penalties { get; set; }
+        [JsonProperty("penalties", NullValueHandling = NullValueHandling.Ignore)]
+        public long? Penalties { get; set; }
 
         public override string ToString() => $"{Country}({Code})";
     }

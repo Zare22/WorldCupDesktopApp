@@ -11,23 +11,23 @@ namespace DataLayer.Models
 {
     public class Weather
     {
-        [JsonProperty("humidity")]
+        [JsonProperty("humidity", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(ParseStringConverter))]
-        public long Humidity { get; set; }
+        public long? Humidity { get; set; }
 
-        [JsonProperty("temp_celsius")]
+        [JsonProperty("temp_celsius", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(ParseStringConverter))]
-        public long TempCelsius { get; set; }
+        public long? TempCelsius { get; set; }
 
-        [JsonProperty("temp_farenheit")]
+        [JsonProperty("temp_farenheit", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(ParseStringConverter))]
-        public long TempFarenheit { get; set; }
+        public long? TempFarenheit { get; set; }
 
-        [JsonProperty("wind_speed")]
+        [JsonProperty("wind_speed", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(ParseStringConverter))]
-        public long WindSpeed { get; set; }
+        public long? WindSpeed { get; set; }
 
-        [JsonProperty("description")]
-        public Description Description { get; set; }
+        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+        public string Description { get; set; }
     }
 }
