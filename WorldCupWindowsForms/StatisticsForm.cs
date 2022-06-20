@@ -15,6 +15,7 @@ namespace WorldCupWindowsForms
     {
         public IList<Match> Matches { get; set; }
         public ISet<Player> Players { get; set; }
+
         public StatisticsForm()
         {
             InitializeComponent();
