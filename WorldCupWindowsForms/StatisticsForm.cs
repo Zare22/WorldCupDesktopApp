@@ -22,26 +22,29 @@ namespace WorldCupWindowsForms
 
         private void StatisticsForm_Load(object sender, EventArgs e)
         {
-            FillPlayersStats(playersStats, Players);
-            FillMatchesStats(matchesStats, Matches);
+            FillPlayersStats();
+            FillMatchesStats();
 
         }
 
-        private void FillMatchesStats(DataGridView playersStats, IList<Match> matches)
+        private void FillMatchesStats()
         {
+            matchesStats.Columns.Add("location", "Lokacija");
+            matchesStats.Columns.Add("attendance", "Broj posjetitelja");
+            matchesStats.Columns.Add("homeTeam", "Domaćin");
+            matchesStats.Columns.Add("awayTeam", "Gost");
 
+            Matches.ToList().ForEach(m => matchesStats.Rows.Add(m.Location, m.Attendance, m.HomeTeam.Country, m.AwayTeam.Country));
         }
 
-        private void FillPlayersStats(DataGridView playersStats, ISet<Player> players)
+        private void FillPlayersStats()
         {
             playersStats.Columns.Add("name", "Ime");
             playersStats.Columns.Add("goals", "Zabijeni golovi");
             playersStats.Columns.Add("yellows", "Žuti kartoni");
 
-            foreach (var p in Players)
-            {
-                playersStats.Rows.Add(p.Name, p.GoalsScored, p.YellowCards);
-            }
+            Players.ToList().ForEach(p => playersStats.Rows.Add(p.Name, p.GoalsScored, p.YellowCards));
+
         }
     }
 }

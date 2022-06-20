@@ -50,7 +50,7 @@ namespace WorldCupWindowsForms
             string team = ddlTeams.SelectedItem.ToString();
             string fifaCode = team.Substring(team.LastIndexOf('(') + 1, 3);
 
-            var players = await manager.GetPlayers(fifaCode);
+            players = await manager.GetPlayers(fifaCode);
             
             players.ToList().ForEach(p => pnlPlayers.Controls.Add(playerControl = new PlayerUC(p)));
         }
@@ -64,7 +64,7 @@ namespace WorldCupWindowsForms
                 string team = ddlTeams.SelectedItem.ToString();
                 string fifaCode = team.Substring(team.LastIndexOf('(') + 1, 3);
 
-                var matches = await manager.GetAllMatches(fifaCode);
+                matches = await manager.GetAllMatches(fifaCode);
             }
             catch (Exception)
             {
