@@ -51,6 +51,8 @@ namespace DataLayer.Models
         [JsonProperty("goal_differential")]
         public long GoalDifferential { get; set; }
 
+        public static IList<TeamFromResults> FromJson(string json) => JsonConvert.DeserializeObject<IList<TeamFromResults>>(json, DataLayer.JsonHandling.TeamConverter.Settings);
+
         public override string ToString() => $"{Country}({FifaCode})";
     }
 }

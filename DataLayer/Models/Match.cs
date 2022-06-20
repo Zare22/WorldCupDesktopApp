@@ -78,6 +78,6 @@ namespace DataLayer.Models
 
         [JsonProperty("last_score_update_at")]
         public DateTimeOffset? LastScoreUpdateAt { get; set; }
-        public static IList<Match> FromJson(string json) => JsonConvert.DeserializeObject<List<Match>>(json, DataLayer.JsonHandling.Converter.Settings);
+        public static IList<Match> FromJson(string json) => JsonConvert.DeserializeObject<IList<Match>>(json, DataLayer.JsonHandling.Converter.Settings);
     }
 }

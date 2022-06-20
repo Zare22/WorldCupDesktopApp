@@ -13,15 +13,15 @@ namespace DataLayer.Repository
 {
     class APIRepository : IRepository
     {
-        public Task<IList<Match>> GetAllMatches()
-        {
-            return Task.Run(async () =>
-            {
-                var apiClient = new RestClient(APIConstantsMen.MATCHES);
-                var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
-                return Match.FromJson(apiResult.Content);
-            });
-        }
+        //public Task<IList<Match>> GetAllMatches()
+        //{
+        //    return Task.Run(async () =>
+        //    {
+        //        var apiClient = new RestClient(APIConstantsMen.MATCHES);
+        //        var apiResult = await apiClient.ExecuteAsync<IList<Match>>(new RestRequest());
+        //        return Match.FromJson(apiResult.Content);
+        //    });
+        //}
 
         public Task<IList<TeamFromResults>> GetAllTeams()
         {

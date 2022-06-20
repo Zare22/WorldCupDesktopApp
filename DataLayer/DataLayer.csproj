@@ -77,9 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\APIConstantsMen.cs" />
+    <Compile Include="Constants\APIConstants.cs" />
+    <Compile Include="Constants\PathConstants.cs" />
+    <Compile Include="JsonHandling\TeamConverter.cs" />
     <Compile Include="Managers\Manager.cs" />
     <Compile Include="Repository\APIRepository.cs" />
+    <Compile Include="Repository\FileRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\RepositoryFactory.cs" />
     <Compile Include="Enums\Description.cs" />
@@ -110,6 +113,34 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\ARG.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\AUS.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\BRA.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\CAN.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\CHI.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\CHN.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\CMR.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\ENG.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\ESP.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\FRA.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\GER.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\ITA.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\JAM.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\JPN.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\KOR.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\NED.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\NGA.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\NOR.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\NZL.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\RSA.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\SCO.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\SWE.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\THA.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\FifaCode\USA.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\group_results.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\matches.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\results.json" />
+    <None Include="DataLayerResources\JsonFiles\Women\teams.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />
@@ -119,4 +150,5 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets'))" />
   </Target>
+  <ProjectExtensions />
 </Project>
