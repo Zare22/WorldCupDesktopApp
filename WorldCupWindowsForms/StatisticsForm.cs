@@ -60,5 +60,18 @@ namespace WorldCupWindowsForms
             Players.ToList().ForEach(p => playersStats.Rows.Add(/*Image from file...path*/p.Name, p.GoalsScored, p.YellowCards));
 
         }
+
+        private void btnPrint_Click(object sender, EventArgs e) => printPreviewDialog.ShowDialog();
+
+        private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap bitmapMatches = new Bitmap(matchesStats.Width, matchesStats.Height);
+            matchesStats.DrawToBitmap(bitmapMatches, new Rectangle(0, 0, matchesStats.Width, matchesStats.Height));
+            e.Graphics.DrawImage(bitmapMatches, 0, 0);
+
+            Bitmap bitmapPlayers = new Bitmap(playersStats.Width, playersStats.Height);
+            playersStats.DrawToBitmap(bitmapPlayers, new Rectangle(0, 0, playersStats.Width, playersStats.Height));
+            e.Graphics.DrawImage(bitmapPlayers, 0, 250);
+        }
     }
 }
