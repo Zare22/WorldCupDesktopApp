@@ -78,13 +78,13 @@
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(220, 24);
             this.rbFemale.TabIndex = 1;
-            this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Žensko svjetsko prvenstvo";
             this.rbFemale.UseVisualStyleBackColor = true;
             // 
             // rbMale
             // 
             this.rbMale.AutoSize = true;
+            this.rbMale.Checked = true;
             this.rbMale.Location = new System.Drawing.Point(31, 26);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(214, 24);
@@ -111,13 +111,13 @@
             this.rbEnglish.Name = "rbEnglish";
             this.rbEnglish.Size = new System.Drawing.Size(94, 24);
             this.rbEnglish.TabIndex = 1;
-            this.rbEnglish.TabStop = true;
             this.rbEnglish.Text = "Engleski";
             this.rbEnglish.UseVisualStyleBackColor = true;
             // 
             // rbCroatian
             // 
             this.rbCroatian.AutoSize = true;
+            this.rbCroatian.Checked = true;
             this.rbCroatian.Location = new System.Drawing.Point(31, 26);
             this.rbCroatian.Name = "rbCroatian";
             this.rbCroatian.Size = new System.Drawing.Size(91, 24);
@@ -128,6 +128,7 @@
             // 
             // btnSaveSettings
             // 
+            this.btnSaveSettings.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSaveSettings.Location = new System.Drawing.Point(12, 468);
             this.btnSaveSettings.Name = "btnSaveSettings";
             this.btnSaveSettings.Size = new System.Drawing.Size(165, 45);
@@ -138,6 +139,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(292, 468);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(165, 45);

@@ -34,8 +34,6 @@ namespace WorldCupWindowsForms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            settingsForm.ShowDialog();
-            SetChampionship(settingsForm.Championship);
             FillDdl();
         }
 
@@ -43,6 +41,7 @@ namespace WorldCupWindowsForms
         //Main Form Work
         public async void FillDdl()
         {
+            SetChampionship(settingsForm.Championship);
             var teams = await manager.GetAllTeams();
             teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
         }
@@ -117,6 +116,18 @@ namespace WorldCupWindowsForms
         {
             MessageBox.Show(message);
             return;
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            var result = settingsForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                ddlTeams.Items.Clear();
+                pnlPlayers.Controls.Clear();
+                pnlFavoritePlayers.Controls.Clear();
+                FillDdl();
+            }
         }
     }
 }
