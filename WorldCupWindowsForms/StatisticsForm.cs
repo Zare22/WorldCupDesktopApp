@@ -13,12 +13,14 @@ namespace WorldCupWindowsForms
 {
     public partial class StatisticsForm : Form
     {
-        public IList<Match> Matches { get; set; }
-        public ISet<Player> Players { get; set; }
+        private IList<Match> Matches { get; set; }
+        private ISet<Player> Players { get; set; }
 
-        public StatisticsForm()
+        public StatisticsForm(IList<Match> matches, ISet<Player> players)
         {
             InitializeComponent();
+            Matches = matches;
+            Players = players;
         }
 
         private void StatisticsForm_Load(object sender, EventArgs e)

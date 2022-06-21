@@ -28,26 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imgPlayer = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
             this.lblPlayerName = new System.Windows.Forms.Label();
             this.lblShirtNumber = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnFavoritePlayer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblShirtNumberW = new System.Windows.Forms.Label();
             this.lblPositionW = new System.Windows.Forms.Label();
             this.lblCaptainW = new System.Windows.Forms.Label();
+            this.btnFavoritePlayer = new System.Windows.Forms.Button();
+            this.toolTipImg = new System.Windows.Forms.ToolTip(this.components);
+            this.imgPlayer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).BeginInit();
             this.SuspendLayout();
-            // 
-            // imgPlayer
-            // 
-            this.imgPlayer.Location = new System.Drawing.Point(3, 3);
-            this.imgPlayer.Name = "imgPlayer";
-            this.imgPlayer.Size = new System.Drawing.Size(108, 144);
-            this.imgPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgPlayer.TabIndex = 0;
-            this.imgPlayer.TabStop = false;
             // 
             // lblPlayerName
             // 
@@ -76,17 +69,6 @@
             this.label1.Size = new System.Drawing.Size(73, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Kapetan:";
-            // 
-            // btnFavoritePlayer
-            // 
-            this.btnFavoritePlayer.FlatAppearance.BorderSize = 0;
-            this.btnFavoritePlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFavoritePlayer.Image = global::WorldCupWindowsForms.Properties.Resources.Hearts_icon;
-            this.btnFavoritePlayer.Location = new System.Drawing.Point(425, 3);
-            this.btnFavoritePlayer.Name = "btnFavoritePlayer";
-            this.btnFavoritePlayer.Size = new System.Drawing.Size(72, 72);
-            this.btnFavoritePlayer.TabIndex = 4;
-            this.btnFavoritePlayer.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -124,11 +106,34 @@
             this.lblCaptainW.TabIndex = 8;
             this.lblCaptainW.Text = "label5";
             // 
+            // btnFavoritePlayer
+            // 
+            this.btnFavoritePlayer.AutoSize = true;
+            this.btnFavoritePlayer.FlatAppearance.BorderSize = 0;
+            this.btnFavoritePlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFavoritePlayer.Image = global::WorldCupWindowsForms.Properties.Resources.Hearts_icon;
+            this.btnFavoritePlayer.Location = new System.Drawing.Point(382, 34);
+            this.btnFavoritePlayer.Name = "btnFavoritePlayer";
+            this.btnFavoritePlayer.Size = new System.Drawing.Size(78, 78);
+            this.btnFavoritePlayer.TabIndex = 4;
+            this.btnFavoritePlayer.UseVisualStyleBackColor = true;
+            // 
+            // imgPlayer
+            // 
+            this.imgPlayer.Image = global::WorldCupWindowsForms.Properties.Resources.FootballPlayer;
+            this.imgPlayer.Location = new System.Drawing.Point(3, 3);
+            this.imgPlayer.Name = "imgPlayer";
+            this.imgPlayer.Size = new System.Drawing.Size(108, 144);
+            this.imgPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgPlayer.TabIndex = 0;
+            this.imgPlayer.TabStop = false;
+            this.imgPlayer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imgPlayer_MouseClick);
+            // 
             // PlayerUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.lblCaptainW);
             this.Controls.Add(this.lblPositionW);
             this.Controls.Add(this.lblShirtNumberW);
@@ -158,5 +163,6 @@
         private System.Windows.Forms.Label lblShirtNumberW;
         private System.Windows.Forms.Label lblPositionW;
         private System.Windows.Forms.Label lblCaptainW;
+        private System.Windows.Forms.ToolTip toolTipImg;
     }
 }

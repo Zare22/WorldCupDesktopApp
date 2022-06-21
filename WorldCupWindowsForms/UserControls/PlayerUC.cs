@@ -32,5 +32,15 @@ namespace WorldCupWindowsForms.UserControls
             PlayerUC player = (PlayerUC)sender;
             player.DoDragDrop(player, DragDropEffects.Move | DragDropEffects.Copy);
         }
+
+        
+
+        private void imgPlayer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+
+            }
+        }
     }
 }
