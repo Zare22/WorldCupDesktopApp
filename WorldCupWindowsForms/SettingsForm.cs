@@ -12,11 +12,11 @@ namespace WorldCupWindowsForms
 {
     public partial class SettingsForm : Form
     {
-        public string Championship => SetChampionship();
+        public string Championship => GetChampionship();
 
-        private string SetChampionship()
+        private string GetChampionship()
         {
-            if (chBoxMale.Checked)
+            if (rbMale.Checked)
             {
                 return "Men";
             }
@@ -24,11 +24,11 @@ namespace WorldCupWindowsForms
                 return "Women";
         }
 
-        public bool Language => SetLanguage();
+        public bool Language => GetLanguage();
 
-        private bool SetLanguage()
+        private bool GetLanguage()
         {
-            if (chBoxCroatian.Checked)
+            if (rbFemale.Checked)
             {
                 return true;
             }
@@ -39,6 +39,11 @@ namespace WorldCupWindowsForms
         public SettingsForm()
         {
             InitializeComponent();
+        }
+
+        private void btnSaveSettings_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -32,22 +32,22 @@ namespace WorldCupWindowsForms
 
         public MainForm() => InitializeComponent();
 
-        private void MainForm_Load(object sender, EventArgs e) => FillDdl();
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            settingsForm.ShowDialog();
+            SetChampionship(settingsForm.Championship);
+            FillDdl();
+        }
 
 
         //Main Form Work
-        private async void FillDdl()
+        public async void FillDdl()
         {
-            SetChampionship();
             var teams = await manager.GetAllTeams();
             teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
         }
 
-        private void SetChampionship()
-        {
-            string championship = settingsForm.Championship;
-            manager.Championship = championship;
-        }
+        private void SetChampionship(string championshipType) => manager.Championship = championshipType;
 
         private void ddlTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
