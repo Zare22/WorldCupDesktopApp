@@ -13,7 +13,9 @@ namespace DataLayer.Models
     {
         public int GoalsScored { get; private set; }
         public int YellowCards { get; private set; }
-        public string ImagePath { get; set; }
+        public string ImagePath { get; set; } = String.Empty;
+
+        public bool Favorite { get; set; } = false;
 
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
