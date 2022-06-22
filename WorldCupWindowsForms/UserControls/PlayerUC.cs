@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Resources;
 
 namespace WorldCupWindowsForms.UserControls
 {
@@ -51,20 +52,22 @@ namespace WorldCupWindowsForms.UserControls
 
         private void imgPlayer_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                contextMenuStrip.Show();
-            }
-        }
-
-        private void izmijeniSlikuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             OpenFileDialog ofd = new OpenFileDialog
             {
                 Filter = "Slike|*.bmp;*.jpg;*.png|Sve datoteke|*.*",
                 InitialDirectory = Application.StartupPath,
             };
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                imgPlayer.Image = new Bitmap(ofd.FileName);
+            }
         }
+
+        //private void ShowPicture(string safeFileName, string fileName)
+        //{
+        //    ResXResourceWriter resourceWriter = new ResXResourceWriter("Images.resx");
+        //    resourceWriter.AddResource(safeFileName)
+        //}
 
         private void btnFavoritePlayer_Click(object sender, EventArgs e)
         {

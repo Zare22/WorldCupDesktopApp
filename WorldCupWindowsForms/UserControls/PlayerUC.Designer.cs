@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblPlayerName = new System.Windows.Forms.Label();
             this.lblShirtNumber = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,10 +36,7 @@
             this.lblPositionW = new System.Windows.Forms.Label();
             this.lblCaptainW = new System.Windows.Forms.Label();
             this.btnFavoritePlayer = new System.Windows.Forms.Button();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.changePicture = new System.Windows.Forms.ToolStripMenuItem();
             this.imgPlayer = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,27 +109,13 @@
             this.btnFavoritePlayer.AutoSize = true;
             this.btnFavoritePlayer.FlatAppearance.BorderSize = 0;
             this.btnFavoritePlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFavoritePlayer.Image = global::WorldCupWindowsForms.Properties.Resources.Hearts_icon;
             this.btnFavoritePlayer.Location = new System.Drawing.Point(382, 34);
             this.btnFavoritePlayer.Name = "btnFavoritePlayer";
             this.btnFavoritePlayer.Size = new System.Drawing.Size(78, 78);
             this.btnFavoritePlayer.TabIndex = 4;
             this.btnFavoritePlayer.UseVisualStyleBackColor = true;
             this.btnFavoritePlayer.Click += new System.EventHandler(this.btnFavoritePlayer_Click);
-            // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changePicture});
-            this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(185, 36);
-            // 
-            // changePicture
-            // 
-            this.changePicture.Name = "changePicture";
-            this.changePicture.Size = new System.Drawing.Size(184, 32);
-            this.changePicture.Text = "Izmijeni sliku";
-            this.changePicture.Click += new System.EventHandler(this.izmijeniSlikuToolStripMenuItem_Click);
             // 
             // imgPlayer
             // 
@@ -162,7 +144,6 @@
             this.Name = "PlayerUC";
             this.Size = new System.Drawing.Size(500, 150);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerUC_MouseDown);
-            this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -178,8 +159,6 @@
         private System.Windows.Forms.Label lblShirtNumberW;
         private System.Windows.Forms.Label lblPositionW;
         private System.Windows.Forms.Label lblCaptainW;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem changePicture;
         private System.Windows.Forms.PictureBox imgPlayer;
     }
 }
