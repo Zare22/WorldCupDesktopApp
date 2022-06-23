@@ -15,7 +15,7 @@ namespace DataLayer.Repository
     {
         public Task<IList<TeamFromResults>> GetAllTeams(string championship)
         {
-            var path = championship == "Men" ? APIConstants.TEAMS : APIConstantsWomen.TEAMS;
+            var path = championship == "Men" ? APIConstantsMen.TEAMS : APIConstantsWomen.TEAMS;
             return Task.Run(async () =>
             {
                 var apiClient = new RestClient(path);
@@ -26,7 +26,7 @@ namespace DataLayer.Repository
 
         public Task<IList<Match>> GetMatchesByCode(string fifaCode, string championship)
         {
-            var path = championship == "Men" ? APIConstants.MATCHES : APIConstantsWomen.MATCHES;
+            var path = championship == "Men" ? APIConstantsMen.MATCHES : APIConstantsWomen.MATCHES;
             return Task.Run(async () =>
                 {
                     var apiClient = new RestClient($"{path}{fifaCode}");
@@ -37,7 +37,7 @@ namespace DataLayer.Repository
 
         public Task<ISet<Player>> GetPlayers(string fifaCode, string championship)
         {
-            var path = championship == "Men" ? APIConstants.MATCHES : APIConstantsWomen.MATCHES;
+            var path = championship == "Men" ? APIConstantsMen.MATCHES : APIConstantsWomen.MATCHES;
             return Task.Run(async () =>
             {
                 var apiClient = new RestClient($"{path}{fifaCode}");

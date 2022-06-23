@@ -15,28 +15,30 @@ namespace DataLayer.Repository
     {
         public Task<IList<TeamFromResults>> GetAllTeams(string championship)
         {
-            //var path = championship == "Men" ? PathConstants.JSON_FOLDER 
+            var path = championship == "Men" ? PathConstants.MEN_TEAMS : PathConstants.WOMEN_TEAMS;
             return Task.Run(async () =>
             {
-                var stringJson = File.ReadAllText($"{PathConstants.JSON_FOLDER}Women\\results.json");
+                var stringJson = File.ReadAllText(path);
                 return TeamFromResults.FromJson(stringJson);
             });
         }
 
         public Task<IList<Match>> GetMatchesByCode(string fifaCode, string championship)
         {
+            var path = championship == "Men" ? PathConstants.MEN_MATCHES : PathConstants.WOMEN_MATCHES;
             return Task.Run(async () =>
             {
-                var stringJson = File.ReadAllText($"{PathConstants.JSON_FOLDER}Women\\FifaCode\\{fifaCode}.json");
+                var stringJson = File.ReadAllText($"{path}{fifaCode}.json");
                 return Match.FromJson(stringJson);
             });
         }
 
         public Task<ISet<Player>> GetPlayers(string fifaCode, string championship)
         {
+            var path = championship == "Men" ? PathConstants.MEN_MATCHES : PathConstants.WOMEN_MATCHES;
             return Task.Run(async () =>
             {
-                var stringJson = File.ReadAllText($"{PathConstants.JSON_FOLDER}Women\\FifaCode\\{fifaCode}.json");
+                var stringJson = File.ReadAllText($"{path}{fifaCode}.json");
                 var matches = Match.FromJson(stringJson);
                 return Player.GetPlayers(matches[0], matches, fifaCode);
             });
