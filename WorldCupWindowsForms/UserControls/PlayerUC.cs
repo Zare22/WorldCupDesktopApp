@@ -47,7 +47,7 @@ namespace WorldCupWindowsForms.UserControls
                 player.DoDragDrop(player, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
-        //Multiple DnD
+        //Multiple DnD srediti
 
 
 
@@ -86,8 +86,7 @@ namespace WorldCupWindowsForms.UserControls
                 btnFavorite.Image = Properties.Resources.HeartsFIlledpng;
             }
             else btnFavorite.Image = Properties.Resources.Hearts_icon;
-
-            //Delegat??
+            //Pretplata mainforme na ovaj event??
         }
     }
 }

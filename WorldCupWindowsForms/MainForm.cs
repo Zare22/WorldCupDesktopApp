@@ -18,11 +18,11 @@ namespace WorldCupWindowsForms
         private SettingsForm settingsForm = new SettingsForm();
         private readonly Manager manager = new Manager();
         private PlayerUC playerControl;
-        
 
         private ISet<Player> players;
         private IList<Match> matches;
 
+        //Potrebna pretplata na event od User Controle
 
         public MainForm() => InitializeComponent();
 
