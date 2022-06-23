@@ -16,6 +16,7 @@ using DataLayer.Repository;
 using DataLayer.Managers;
 using WorldCupWindowsForms.UserControls;
 using System.Net.NetworkInformation;
+using DataLayer.Events;
 
 namespace WorldCupWindowsForms
 {
@@ -28,7 +29,7 @@ namespace WorldCupWindowsForms
 
         private ISet<Player> players;
         private IList<Match> matches;
-        
+
 
         public MainForm() => InitializeComponent();
 
@@ -44,7 +45,6 @@ namespace WorldCupWindowsForms
             SetChampionship(settingsForm.Championship);
             var teams = await manager.GetAllTeams();
             teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
-            
         }
 
         private void SetChampionship(string championshipType) => manager.Championship = championshipType;

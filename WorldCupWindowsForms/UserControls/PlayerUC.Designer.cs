@@ -35,7 +35,7 @@
             this.lblShirtNumberW = new System.Windows.Forms.Label();
             this.lblPositionW = new System.Windows.Forms.Label();
             this.lblCaptainW = new System.Windows.Forms.Label();
-            this.btnFavoritePlayer = new System.Windows.Forms.Button();
+            this.btnFavorite = new System.Windows.Forms.Button();
             this.imgPlayer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgPlayer)).BeginInit();
             this.SuspendLayout();
@@ -104,18 +104,18 @@
             this.lblCaptainW.TabIndex = 8;
             this.lblCaptainW.Text = "label5";
             // 
-            // btnFavoritePlayer
+            // btnFavorite
             // 
-            this.btnFavoritePlayer.AutoSize = true;
-            this.btnFavoritePlayer.FlatAppearance.BorderSize = 0;
-            this.btnFavoritePlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFavoritePlayer.Image = global::WorldCupWindowsForms.Properties.Resources.Hearts_icon;
-            this.btnFavoritePlayer.Location = new System.Drawing.Point(382, 34);
-            this.btnFavoritePlayer.Name = "btnFavoritePlayer";
-            this.btnFavoritePlayer.Size = new System.Drawing.Size(78, 78);
-            this.btnFavoritePlayer.TabIndex = 4;
-            this.btnFavoritePlayer.UseVisualStyleBackColor = true;
-            this.btnFavoritePlayer.Click += new System.EventHandler(this.btnFavoritePlayer_Click);
+            this.btnFavorite.AutoSize = true;
+            this.btnFavorite.FlatAppearance.BorderSize = 0;
+            this.btnFavorite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFavorite.Image = global::WorldCupWindowsForms.Properties.Resources.Hearts_icon;
+            this.btnFavorite.Location = new System.Drawing.Point(382, 34);
+            this.btnFavorite.Name = "btnFavorite";
+            this.btnFavorite.Size = new System.Drawing.Size(78, 78);
+            this.btnFavorite.TabIndex = 4;
+            this.btnFavorite.UseVisualStyleBackColor = true;
+            this.btnFavorite.Click += new System.EventHandler(this.btnFavorite_Click);
             // 
             // imgPlayer
             // 
@@ -136,7 +136,7 @@
             this.Controls.Add(this.lblPositionW);
             this.Controls.Add(this.lblShirtNumberW);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnFavoritePlayer);
+            this.Controls.Add(this.btnFavorite);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblShirtNumber);
             this.Controls.Add(this.lblPlayerName);
@@ -154,7 +154,7 @@
         private System.Windows.Forms.Label lblPlayerName;
         private System.Windows.Forms.Label lblShirtNumber;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnFavoritePlayer;
+        private System.Windows.Forms.Button btnFavorite;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblShirtNumberW;
         private System.Windows.Forms.Label lblPositionW;

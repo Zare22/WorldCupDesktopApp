@@ -10,33 +10,32 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Resources;
 using System.Drawing.Imaging;
+using DataLayer.Events;
 
 namespace WorldCupWindowsForms.UserControls
 {
     public partial class PlayerUC : UserControl
     {
+        public Player PlayerInUC { get; set; }
 
+
+        //private static ResXResourceWriter resx = new ResXResourceWriter("C:\\Users\\Leo\\source\\repos\\WorldCupDesktopApp\\WorldCupWindowsForms\\Resources\\FavoritePlayers.resx");
 
         public PlayerUC(Player player)
         {
             InitializeComponent();
 
-            if (player.ImagePath == String.Empty)
+            PlayerInUC = player;
+
+            if (PlayerInUC.ImagePath == String.Empty)
             {
                 imgPlayer.Image = Properties.Resources.FootballPlayer;
             }
 
-            lblPlayerName.Text = player.Name;
-            lblShirtNumberW.Text = player.ShirtNumber.ToString();
-            lblPositionW.Text = player.Position.ToString();
-            lblCaptainW.Text = player.IsCaptain ? "Yes" : "No";
-
-            if (player.Favorite)
-            {
-                btnFavoritePlayer.Image = Properties.Resources.HeartsFIlledpng;
-            }
-            else btnFavoritePlayer.Image = Properties.Resources.Hearts_icon;
-
+            lblPlayerName.Text = PlayerInUC.Name;
+            lblShirtNumberW.Text = PlayerInUC.ShirtNumber.ToString();
+            lblPositionW.Text = PlayerInUC.Position.ToString();
+            lblCaptainW.Text = PlayerInUC.IsCaptain ? "Yes" : "No";
         }
 
         private void PlayerUC_MouseDown(object sender, MouseEventArgs e)
@@ -46,10 +45,9 @@ namespace WorldCupWindowsForms.UserControls
                 PlayerUC player = (PlayerUC)sender;
                 player.DoDragDrop(player, DragDropEffects.Move | DragDropEffects.Copy);
             }
-
         }
 
-        
+
 
         private void imgPlayer_MouseClick(object sender, MouseEventArgs e)
         {
@@ -61,19 +59,30 @@ namespace WorldCupWindowsForms.UserControls
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 imgPlayer.Image = new Bitmap(ofd.FileName);
-                
+
             }
         }
 
-        //private void ShowPicture(string safeFileName, string fileName)
-        //{
-        //    ResXResourceWriter resourceWriter = new ResXResourceWriter("Images.resx");
-        //    resourceWriter.AddResource(safeFileName)
-        //}
-
-        private void btnFavoritePlayer_Click(object sender, EventArgs e)
+        private void btnFavorite_Click(object sender, EventArgs e)
         {
-            
+            //if (FavoritePlayersCounter < 3)
+            //{
+            //    resx.AddResource($"Favorite Player {FavoritePlayersCounter}:", PlayerInUC.Name);
+            //    FavoritePlayersCounter++;
+            //}
+            //else
+            //{
+            //    resx.Close();
+            //    MessageBox.Show("Nije moguće dodati više favorita!");
+            //    return;
+
+            //}
+            PlayerInUC.Favorite = !PlayerInUC.Favorite; 
+            if (PlayerInUC.Favorite)
+            {
+                btnFavorite.Image = Properties.Resources.HeartsFIlledpng;
+            }
+            else btnFavorite.Image = Properties.Resources.Hearts_icon;
         }
     }
 }
