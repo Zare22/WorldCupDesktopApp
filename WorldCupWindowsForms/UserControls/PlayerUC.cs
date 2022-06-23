@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Resources;
 using System.Drawing.Imaging;
-using DataLayer.Events;
 
 namespace WorldCupWindowsForms.UserControls
 {
@@ -83,6 +82,8 @@ namespace WorldCupWindowsForms.UserControls
                 btnFavorite.Image = Properties.Resources.HeartsFIlledpng;
             }
             else btnFavorite.Image = Properties.Resources.Hearts_icon;
+
+            //Delegat??
         }
     }
 }

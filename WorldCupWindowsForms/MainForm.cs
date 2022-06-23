@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-using RestSharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,13 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataLayer.Models;
-using DataLayer.Constants;
-using DataLayer.JsonHandling;
-using DataLayer.Repository;
 using DataLayer.Managers;
 using WorldCupWindowsForms.UserControls;
-using System.Net.NetworkInformation;
-using DataLayer.Events;
 
 namespace WorldCupWindowsForms
 {

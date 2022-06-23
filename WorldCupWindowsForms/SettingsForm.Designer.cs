@@ -84,12 +84,10 @@
             // rbMale
             // 
             this.rbMale.AutoSize = true;
-            this.rbMale.Checked = true;
             this.rbMale.Location = new System.Drawing.Point(31, 26);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(214, 24);
             this.rbMale.TabIndex = 0;
-            this.rbMale.TabStop = true;
             this.rbMale.Text = "Muško svjetsko prvenstvo";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
@@ -117,12 +115,10 @@
             // rbCroatian
             // 
             this.rbCroatian.AutoSize = true;
-            this.rbCroatian.Checked = true;
             this.rbCroatian.Location = new System.Drawing.Point(31, 26);
             this.rbCroatian.Name = "rbCroatian";
             this.rbCroatian.Size = new System.Drawing.Size(91, 24);
             this.rbCroatian.TabIndex = 0;
-            this.rbCroatian.TabStop = true;
             this.rbCroatian.Text = "Hrvatski";
             this.rbCroatian.UseVisualStyleBackColor = true;
             // 
