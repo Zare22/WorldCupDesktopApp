@@ -141,6 +141,7 @@
             this.Controls.Add(this.lblShirtNumber);
             this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.imgPlayer);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "PlayerUC";
             this.Size = new System.Drawing.Size(500, 150);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerUC_MouseDown);

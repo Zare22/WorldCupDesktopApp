@@ -129,7 +129,7 @@
             this.Controls.Add(this.ddlTeams);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "World Cup";
+            this.Text = "Svjetsko Prvenstvo";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

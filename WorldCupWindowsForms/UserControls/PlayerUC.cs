@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Resources;
 using System.Drawing.Imaging;
+using System.IO;
 
 namespace WorldCupWindowsForms.UserControls
 {
     public partial class PlayerUC : UserControl
     {
         public Player PlayerInUC { get; set; }
-
 
         //private static ResXResourceWriter resx = new ResXResourceWriter("C:\\Users\\Leo\\source\\repos\\WorldCupDesktopApp\\WorldCupWindowsForms\\Resources\\FavoritePlayers.resx");
 
@@ -26,10 +26,12 @@ namespace WorldCupWindowsForms.UserControls
 
             PlayerInUC = player;
 
-            if (PlayerInUC.ImagePath == String.Empty)
+            //relative paths!!!
+            if (File.Exists($"C:\\Users\\Leo\\source\\repos\\WorldCupDesktopApp\\WorldCupWindowsForms\\Resources\\PlayerImages\\{PlayerInUC.Name}.jpg"))
             {
-                imgPlayer.Image = Properties.Resources.FootballPlayer;
+                imgPlayer.ImageLocation = $"C:\\Users\\Leo\\source\\repos\\WorldCupDesktopApp\\WorldCupWindowsForms\\Resources\\PlayerImages\\{PlayerInUC.Name}.jpg";
             }
+            else imgPlayer.Image = Properties.Resources.FootballPlayer;
 
             lblPlayerName.Text = PlayerInUC.Name;
             lblShirtNumberW.Text = PlayerInUC.ShirtNumber.ToString();
@@ -45,6 +47,7 @@ namespace WorldCupWindowsForms.UserControls
                 player.DoDragDrop(player, DragDropEffects.Move | DragDropEffects.Copy);
             }
         }
+        //Multiple DnD
 
 
 
@@ -53,12 +56,13 @@ namespace WorldCupWindowsForms.UserControls
             OpenFileDialog ofd = new OpenFileDialog
             {
                 Filter = "Slike|*.bmp;*.jpg;*.png|Sve datoteke|*.*",
-                InitialDirectory = Application.StartupPath,
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
             };
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 imgPlayer.Image = new Bitmap(ofd.FileName);
-
+                //relative path
+                imgPlayer.Image.Save($"C:\\Users\\Leo\\source\\repos\\WorldCupDesktopApp\\WorldCupWindowsForms\\Resources\\PlayerImages\\{PlayerInUC.Name}.jpg");
             }
         }
 
