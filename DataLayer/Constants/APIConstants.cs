@@ -10,13 +10,20 @@ namespace DataLayer.Constants
     {
         
         //Men
-        public const string MEN_TEAMS = "http://world-cup-json-2018.herokuapp.com/teams/results";
+        public const string TEAMS = "http://world-cup-json-2018.herokuapp.com/teams/results";
         //public const string MATCHES = "http://world-cup-json-2018.herokuapp.com/matches";
-        public const string MEN_MATCHES = "http://world-cup-json-2018.herokuapp.com/matches/country?fifa_code=";
+        public const string MATCHES = "http://world-cup-json-2018.herokuapp.com/matches/country?fifa_code=";
 
         //Women
-        public const string WOMEN_TEAMS = "http://worldcup.sfg.io/teams/results";
+        //public const string WOMEN_TEAMS = "http://worldcup.sfg.io/teams/results";
+        ////public const string MATCHES = "http://world-cup-json-2018.herokuapp.com/matches";
+        //public const string WOMEN_MATCHES = "http://worldcup.sfg.io/matches/country?fifa_code=";
+    }
+
+    public static partial class APIConstantsWomen
+    {
+        public const string TEAMS = "http://worldcup.sfg.io/teams/results";
         //public const string MATCHES = "http://world-cup-json-2018.herokuapp.com/matches";
-        public const string WOMEN_MATCHES = "http://worldcup.sfg.io/matches/country?fifa_code=";
+        public const string MATCHES = "http://worldcup.sfg.io/matches/country?fifa_code=";
     }
 }

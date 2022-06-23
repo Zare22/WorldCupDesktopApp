@@ -15,6 +15,7 @@ namespace DataLayer.Repository
     {
         public Task<IList<TeamFromResults>> GetAllTeams(string championship)
         {
+            //var path = championship == "Men" ? PathConstants.JSON_FOLDER 
             return Task.Run(async () =>
             {
                 var stringJson = File.ReadAllText($"{PathConstants.JSON_FOLDER}Women\\results.json");

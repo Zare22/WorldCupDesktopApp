@@ -43,9 +43,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ddlTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTeams.FormattingEnabled = true;
-            this.ddlTeams.Location = new System.Drawing.Point(559, 80);
+            this.ddlTeams.Location = new System.Drawing.Point(569, 80);
             this.ddlTeams.Name = "ddlTeams";
-            this.ddlTeams.Size = new System.Drawing.Size(346, 28);
+            this.ddlTeams.Size = new System.Drawing.Size(326, 28);
             this.ddlTeams.TabIndex = 0;
             this.ddlTeams.SelectedIndexChanged += new System.EventHandler(this.ddlTeams_SelectedIndexChanged);
             // 

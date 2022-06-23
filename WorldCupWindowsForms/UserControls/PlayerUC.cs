@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Resources;
+using System.Drawing.Imaging;
 
 namespace WorldCupWindowsForms.UserControls
 {
@@ -60,6 +61,7 @@ namespace WorldCupWindowsForms.UserControls
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 imgPlayer.Image = new Bitmap(ofd.FileName);
+                
             }
         }
 

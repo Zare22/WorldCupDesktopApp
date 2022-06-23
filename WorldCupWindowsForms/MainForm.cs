@@ -44,6 +44,7 @@ namespace WorldCupWindowsForms
             SetChampionship(settingsForm.Championship);
             var teams = await manager.GetAllTeams();
             teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
+            
         }
 
         private void SetChampionship(string championshipType) => manager.Championship = championshipType;
