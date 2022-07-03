@@ -1,9 +1,11 @@
-﻿using DataLayer.Models;
+﻿using DataLayer.Constants;
+using DataLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,8 @@ namespace WorldCupWindowsForms
     {
         private IList<Match> Matches { get; set; }
         private ISet<Player> Players { get; set; }
+
+        private string imagesPath = PathConstants.Player_Images;
 
         public StatisticsForm(IList<Match> matches, ISet<Player> players)
         {
@@ -42,7 +46,6 @@ namespace WorldCupWindowsForms
 
         private void FillPlayersStats()
         {
-            /*
             DataGridViewImageColumn playerImage = new DataGridViewImageColumn
             {
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.None,
@@ -52,14 +55,29 @@ namespace WorldCupWindowsForms
                 Name = "playerImage",
                 HeaderText = "Slika"
             };
-            
+
+
             playersStats.Columns.Add(playerImage);
-            */
             playersStats.Columns.Add("name", "Ime");
             playersStats.Columns.Add("goals", "Zabijeni golovi");
             playersStats.Columns.Add("yellows", "Žuti kartoni");
 
-            Players.ToList().ForEach(p => playersStats.Rows.Add(/*Image from file...path*/p.Name, p.GoalsScored, p.YellowCards));
+            foreach (var p in Players)
+            {
+                if (File.Exists($"{imagesPath}{p.Name}.jpg"))
+                {
+                    playersStats.Rows.Add(
+                        Image.FromFile($"{imagesPath}{p.Name}.jpg"),
+                        p.Name,
+                        p.GoalsScored,
+                        p.YellowCards);
+                }
+                playersStats.Rows.Add(
+                        Properties.Resources.FootballPlayer,
+                        p.Name,
+                        p.GoalsScored,
+                        p.YellowCards);
+            }
 
         }
 

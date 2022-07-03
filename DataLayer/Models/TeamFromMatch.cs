@@ -9,6 +9,7 @@ namespace DataLayer.Models
 {
     public class TeamFromMatch
     {
+
         [JsonProperty("country", NullValueHandling = NullValueHandling.Ignore)]
         public string Country { get; set; }
 

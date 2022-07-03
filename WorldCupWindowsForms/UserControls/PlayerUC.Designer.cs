@@ -46,9 +46,9 @@
             this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerName.Location = new System.Drawing.Point(118, 3);
             this.lblPlayerName.Name = "lblPlayerName";
-            this.lblPlayerName.Size = new System.Drawing.Size(165, 29);
+            this.lblPlayerName.Size = new System.Drawing.Size(188, 29);
             this.lblPlayerName.TabIndex = 1;
-            this.lblPlayerName.Text = "<Ime igrača>";
+            this.lblPlayerName.Text = "<Player name>";
             // 
             // lblShirtNumber
             // 
@@ -82,27 +82,27 @@
             this.lblShirtNumberW.AutoSize = true;
             this.lblShirtNumberW.Location = new System.Drawing.Point(210, 63);
             this.lblShirtNumberW.Name = "lblShirtNumberW";
-            this.lblShirtNumberW.Size = new System.Drawing.Size(51, 20);
+            this.lblShirtNumberW.Size = new System.Drawing.Size(118, 20);
             this.lblShirtNumberW.TabIndex = 6;
-            this.lblShirtNumberW.Text = "label3";
+            this.lblShirtNumberW.Text = "<Shirt number>";
             // 
             // lblPositionW
             // 
             this.lblPositionW.AutoSize = true;
             this.lblPositionW.Location = new System.Drawing.Point(210, 89);
             this.lblPositionW.Name = "lblPositionW";
-            this.lblPositionW.Size = new System.Drawing.Size(51, 20);
+            this.lblPositionW.Size = new System.Drawing.Size(83, 20);
             this.lblPositionW.TabIndex = 7;
-            this.lblPositionW.Text = "label4";
+            this.lblPositionW.Text = "<Position>";
             // 
             // lblCaptainW
             // 
             this.lblCaptainW.AutoSize = true;
             this.lblCaptainW.Location = new System.Drawing.Point(210, 115);
             this.lblCaptainW.Name = "lblCaptainW";
-            this.lblCaptainW.Size = new System.Drawing.Size(51, 20);
+            this.lblCaptainW.Size = new System.Drawing.Size(82, 20);
             this.lblCaptainW.TabIndex = 8;
-            this.lblCaptainW.Text = "label5";
+            this.lblCaptainW.Text = "<Captain>";
             // 
             // btnFavorite
             // 
@@ -119,6 +119,8 @@
             // 
             // imgPlayer
             // 
+            this.imgPlayer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.imgPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.imgPlayer.Location = new System.Drawing.Point(3, 3);
             this.imgPlayer.Name = "imgPlayer";
             this.imgPlayer.Size = new System.Drawing.Size(108, 144);
@@ -141,7 +143,7 @@
             this.Controls.Add(this.lblShirtNumber);
             this.Controls.Add(this.lblPlayerName);
             this.Controls.Add(this.imgPlayer);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "PlayerUC";
             this.Size = new System.Drawing.Size(500, 150);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerUC_MouseDown);

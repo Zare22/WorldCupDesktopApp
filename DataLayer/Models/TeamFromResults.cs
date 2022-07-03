@@ -9,6 +9,7 @@ namespace DataLayer.Models
 {
     public class TeamFromResults
     {
+
         [JsonProperty("id")]
         public long Id { get; set; }
 

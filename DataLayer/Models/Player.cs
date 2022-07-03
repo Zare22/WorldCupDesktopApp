@@ -13,9 +13,10 @@ namespace DataLayer.Models
     {
         public int GoalsScored { get; private set; }
         public int YellowCards { get; private set; }
-        public string ImagePath { get; set; } = String.Empty;
 
         public bool Favorite { get; set; } = false;
+
+        public TeamFromMatch PlayersTeam { get; set; }
 
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
@@ -41,21 +42,20 @@ namespace DataLayer.Models
         internal static ISet<Player> GetPlayers(Match match, IList<Match> matches, string fifaCode)
         {
             var players = new HashSet<Player>();
-            //foreach (var m in matches)
-            //{
-                if (match.HomeTeam.Code == fifaCode)
-                {
-                    players = players.
-                        Concat(match.HomeTeamStatistics.StartingEleven).
-                        Concat(match.HomeTeamStatistics.Substitutes).ToHashSet();
-                }
-                else
-                {
-                    players = players.
-                        Concat(match.AwayTeamStatistics.StartingEleven).
-                        Concat(match.AwayTeamStatistics.Substitutes).ToHashSet();
-                }
-            //}
+            if (match.HomeTeam.Code == fifaCode)
+            {
+                players = players.
+                    Concat(match.HomeTeamStatistics.StartingEleven).
+                    Concat(match.HomeTeamStatistics.Substitutes).ToHashSet();
+                players.ToList().ForEach(p => p.PlayersTeam = match.HomeTeam);
+            }
+            else
+            {
+                players = players.
+                    Concat(match.AwayTeamStatistics.StartingEleven).
+                    Concat(match.AwayTeamStatistics.Substitutes).ToHashSet();
+                players.ToList().ForEach(p => p.PlayersTeam = match.AwayTeam);
+            }
             players.ToList().ForEach(p => p.GoalsAndYellows(p, matches, fifaCode));
             return players;
         }

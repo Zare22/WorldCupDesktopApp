@@ -42,72 +42,48 @@
             // 
             // playersStats
             // 
+            resources.ApplyResources(this.playersStats, "playersStats");
             this.playersStats.AllowUserToAddRows = false;
             this.playersStats.AllowUserToDeleteRows = false;
             this.playersStats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.playersStats.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.playersStats.ColumnHeadersHeight = 34;
-            this.playersStats.Location = new System.Drawing.Point(13, 45);
             this.playersStats.Name = "playersStats";
             this.playersStats.ReadOnly = true;
-            this.playersStats.RowHeadersWidth = 62;
             this.playersStats.RowTemplate.Height = 28;
-            this.playersStats.Size = new System.Drawing.Size(543, 634);
-            this.playersStats.TabIndex = 0;
             // 
             // matchesStats
             // 
+            resources.ApplyResources(this.matchesStats, "matchesStats");
             this.matchesStats.AllowUserToAddRows = false;
             this.matchesStats.AllowUserToDeleteRows = false;
             this.matchesStats.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.matchesStats.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.matchesStats.ColumnHeadersHeight = 34;
-            this.matchesStats.Location = new System.Drawing.Point(684, 45);
             this.matchesStats.Name = "matchesStats";
             this.matchesStats.ReadOnly = true;
-            this.matchesStats.RowHeadersWidth = 62;
             this.matchesStats.RowTemplate.Height = 28;
-            this.matchesStats.Size = new System.Drawing.Size(543, 634);
-            this.matchesStats.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(194, 22);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Statistike igrača";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(884, 22);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Statistike utakmica";
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(561, 275);
+            resources.ApplyResources(this.btnPrint, "btnPrint");
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(116, 116);
-            this.btnPrint.TabIndex = 4;
-            this.btnPrint.Text = "Isprintaj statistiku";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // printPreviewDialog
             // 
-            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            resources.ApplyResources(this.printPreviewDialog, "printPreviewDialog");
             this.printPreviewDialog.Document = this.printDocument;
-            this.printPreviewDialog.Enabled = true;
-            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
             this.printPreviewDialog.Name = "printPreviewDialog";
-            this.printPreviewDialog.Visible = false;
             // 
             // printDocument
             // 
@@ -116,17 +92,14 @@
             // 
             // StatisticsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1239, 691);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.matchesStats);
             this.Controls.Add(this.playersStats);
             this.Name = "StatisticsForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Statistike <Reprezentacije>";
             this.Load += new System.EventHandler(this.StatisticsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.playersStats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matchesStats)).EndInit();

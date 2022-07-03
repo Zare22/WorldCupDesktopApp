@@ -13,7 +13,20 @@ namespace DataLayer.Managers
     public class Manager
     {
         private readonly IRepository repository;
-        private bool testConnection = new Ping().Send("www.google.com").Status == IPStatus.Success;
+        private bool testConnection => Connection();
+
+        private bool Connection()
+        {
+            try
+            {
+                bool test = new Ping().Send("www.google.com").Status == IPStatus.Success;
+                return test;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public string Championship { get; set; }
 

@@ -1,18 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataLayer.Constants
 {
-    public static class PathConstants
+    public static class PathConstants // not fully constants
     {
-        public const string WOMEN_TEAMS = "..\\..\\..\\DataLayer\\DataLayerResources\\JsonFiles\\Women\\results.json";
-        public const string MEN_TEAMS = "..\\..\\..\\DataLayer\\DataLayerResources\\JsonFiles\\Men\\results.json";
+        
+        private static readonly string PROJECT_DIRECTORY = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
 
-        public const string MEN_MATCHES = "..\\..\\..\\DataLayer\\DataLayerResources\\JsonFiles\\Men\\FifaCode\\"; 
-        public const string WOMEN_MATCHES = "..\\..\\..\\DataLayer\\DataLayerResources\\JsonFiles\\Women\\FifaCode\\"; 
+        //"C:\\Users\\Leo\\source\\repos\\WorldCupDesktopApp\\WorldCupWindowsForms\\Resources\\Settings.resx"
+
+        private const string FORMS_RESOURCES = "\\WorldCupWindowsForms\\Resources\\";
+        private const string WPF_RESOURCES = "\\WorldCupWPF\\Resources\\";
+
+        private const string DATALAYER_RESOURCES = "\\DataLayer\\DataLayerResources\\";
+
+        private const string WOMEN_TEAMS = "JsonFiles\\Women\\results.json";
+        private const string WOMEN_MATCHES = "JsonFiles\\Women\\FifaCode\\";
+
+        private const string MEN_MATCHES = "JsonFiles\\Men\\FifaCode\\";
+        private const string MEN_TEAMS = "JsonFiles\\Men\\results.json";
+
+
+        private static readonly string FullWomenTeams = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}{WOMEN_TEAMS}";
+        private static readonly string FullMenTeams = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}{MEN_TEAMS}";
+
+        public static string GetTeamsChampionshipType(string championshipType) => championshipType == "Men" ? FullMenTeams : FullWomenTeams;
+
+        private static readonly string FullWomenMatches = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}{WOMEN_MATCHES}";
+        private static readonly string FullMenMatches = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}{MEN_MATCHES}";
+
+        public static string GetMatchesChampionshipType(string championshipType) => championshipType == "Men" ? FullMenMatches : FullWomenMatches;
+
+        public static string Player_Images = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}PlayerImages\\";
+
+        public static string Settings_WinFormApp = $"{PROJECT_DIRECTORY}{FORMS_RESOURCES}Settings.resx";
+        public static string FavoritePlayers_WinFormApp = $"{PROJECT_DIRECTORY}{FORMS_RESOURCES}FavoritePlayers.resx";
+        public static string FavoriteTeam_WinFormApp = $"{PROJECT_DIRECTORY}{FORMS_RESOURCES}";
 
     }
 }
