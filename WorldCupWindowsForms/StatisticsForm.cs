@@ -1,4 +1,5 @@
 ﻿using DataLayer.Constants;
+using DataLayer.Exceptions;
 using DataLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace WorldCupWindowsForms
         private IList<Match> Matches { get; set; }
         private ISet<Player> Players { get; set; }
 
-        private string imagesPath = PathConstants.Player_Images;
+        private string imagesPath = PathConstants.FootbalPlayerImage;
 
         public StatisticsForm(IList<Match> matches, ISet<Player> players)
         {
@@ -29,8 +30,16 @@ namespace WorldCupWindowsForms
 
         private void StatisticsForm_Load(object sender, EventArgs e)
         {
-            FillPlayersStats();
-            FillMatchesStats();
+            try
+            {
+                FillPlayersStats();
+                FillMatchesStats();
+            }
+            catch (Exception)
+            {
+                MyException.ShowMessage(Resources.Messages.settingsMessage);
+                return;
+            }
 
         }
 
@@ -73,7 +82,7 @@ namespace WorldCupWindowsForms
                         p.YellowCards);
                 }
                 playersStats.Rows.Add(
-                        Properties.Resources.FootballPlayer,
+                        Image.FromFile($"{imagesPath}"),
                         p.Name,
                         p.GoalsScored,
                         p.YellowCards);
