@@ -47,8 +47,8 @@
             // 
             // pnlPlayers
             // 
-            resources.ApplyResources(this.pnlPlayers, "pnlPlayers");
             this.pnlPlayers.AllowDrop = true;
+            resources.ApplyResources(this.pnlPlayers, "pnlPlayers");
             this.pnlPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlPlayers.Name = "pnlPlayers";
             this.pnlPlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlayers_DragDrop);
@@ -61,8 +61,8 @@
             // 
             // pnlFavoritePlayers
             // 
-            resources.ApplyResources(this.pnlFavoritePlayers, "pnlFavoritePlayers");
             this.pnlFavoritePlayers.AllowDrop = true;
+            resources.ApplyResources(this.pnlFavoritePlayers, "pnlFavoritePlayers");
             this.pnlFavoritePlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlFavoritePlayers.Name = "pnlFavoritePlayers";
             this.pnlFavoritePlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlayers_DragDrop);

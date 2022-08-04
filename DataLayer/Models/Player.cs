@@ -95,6 +95,7 @@ namespace DataLayer.Models
             }
         }
 
+
         private bool IsYellow(Player player, TeamEvent matchEvent) => player.Name.ToLower() == matchEvent.Player.ToLower() && matchEvent.TypeOfEvent == TypeOfEvent.YellowCard;
         private bool IsGoal(Player player, TeamEvent matchEvent) => player.Name.ToLower() == matchEvent.Player.ToLower() && matchEvent.TypeOfEvent == TypeOfEvent.Goal;
         //Changed DataLayer.JsonHandling.TypeOfEventConverter to count penalties as goals and 2nd yellows as yellows

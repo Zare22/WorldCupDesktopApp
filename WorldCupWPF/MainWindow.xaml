@@ -1,0 +1,65 @@
+﻿<Window x:Class="WorldCupWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldCupWPF"
+        xmlns:uc="clr-namespace:WorldCupWPF.UserControls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1025" MinHeight="720" MinWidth="1025" Loaded="MainWindow_Loaded">
+    <Window.Resources>
+        <ResourceDictionary Source="Styles/myStyles.xaml"/>
+    </Window.Resources>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Postavke" Click="btnPostavke_Click" Margin="2" Padding="3"/>
+
+            <!--ComboBoxes for Teams-->
+            <ComboBox x:Name="ddlTeams" Grid.Row="0" Grid.Column="0" SelectionChanged="ddlTeams_SelectionChanged"/>
+            <ComboBox x:Name="ddlOpponent" Grid.Row="0" Grid.Column="2" SelectionChanged="ddlOpponents_SelectionChanged"/>
+
+            <!--Buttons for info and label for score-->
+            <Button Content="Informacije o ekipi" Grid.Row="1" Style="{StaticResource ResourceKey= btnInfo}" Click="btnHomeTeam_Click"/>
+            <Label x:Name="lblResult" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Button Content="Informacije o ekipi" Grid.Row="1" Grid.Column="3" Style="{StaticResource ResourceKey= btnInfo}" Click="btnAwayTeam_Click"/>
+        </Grid>
+
+        <Grid x:Name="footballFieldGrid" Margin="25" DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="pnlGoalkeeperHome" Grid.Column="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel x:Name="pnlDefendersHome" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel x:Name="pnlMidfieldersHome" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel x:Name="pnlForwardsHome" Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <StackPanel x:Name="pnlGoalkeeperAway" Grid.Column="7" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel x:Name="pnlDefendersAway" Grid.Column="6" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel x:Name="pnlMidfieldersAway" Grid.Column="5" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel x:Name="pnlForwardsAway" Grid.Column="4" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Grid.Background>
+                <ImageBrush ImageSource="Images/FootballField.png"/>
+            </Grid.Background>
+        </Grid>
+    </DockPanel>
+    
+</Window>

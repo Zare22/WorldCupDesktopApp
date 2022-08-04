@@ -17,5 +17,7 @@ namespace DataLayer.Repository
             else
                 return new FileRepository();
         }
+
+        public static ISettings GetResourcesRepository() => new SettingsRepository();
     }
 }

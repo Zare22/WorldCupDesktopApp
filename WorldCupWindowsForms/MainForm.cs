@@ -18,12 +18,14 @@ using System.Reflection;
 using DataLayer.Constants;
 using System.Resources;
 using System.Collections;
+using DataLayer.Exceptions;
 
 namespace WorldCupWindowsForms
 {
     public partial class MainForm : Form, IPlayerMovable
     {
-        private SettingsForm settingsForm = new SettingsForm();
+
+        private readonly SettingsManager settingsManager = new SettingsManager();
         private readonly Manager manager = new Manager();
 
         private PlayerUC playerControl;
@@ -31,65 +33,76 @@ namespace WorldCupWindowsForms
         private ISet<Player> players;
         private IList<Match> matches;
 
-        public string SelectedTeam { get; set; }
+        public string SelectedTeam;
+        public string Championship => manager.Championship;
 
         public IDictionary<string, bool> FavPlayers { get; set; } = new Dictionary<string, bool>();
 
-
-
         public MainForm()
         {
-            FillFavoritePlayers();
-            InitializeComponent();
+            CultureInfo culture = new CultureInfo("hr");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+
+            InitializeComponent(); 
         }
 
         //Main form logic
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (!File.Exists(PathConstants.Settings_WinFormApp))
+            FillFavoritePlayers();
+            if (!File.Exists(PathConstants.Settings))
             {
                 ShowSettingsForm();
             }
             else
             {
-                SetCulture(settingsForm.Language);
-                FillDdl();
+                SetForm();
             }
+        }
+
+        public void SetForm()
+        {
+            string language = settingsManager.CheckForLanguage() ? "hr" : "en";
+            CultureInfo culture = new CultureInfo(language);
+
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+
+
+            this.Controls.Clear();
+            InitializeComponent();
+            FillDdl();
         }
 
         private async void FillDdl()
         {
-            SetChampionship(settingsForm.Championship);
             try
             {
                 var teams = await manager.GetAllTeams();
                 teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
-
-
             }
             catch (Exception)
             {
-                ShowMessage("Došlo je do pogreške kod učitavanja timova");
+                MyException.ShowMessage(Resources.Messages.teamLoading);
                 return;
             }
 
-            if (File.Exists($"{PathConstants.FavoriteTeam_WinFormApp}{settingsForm.Championship}FavoriteTeam.resx"))
+            SelectedTeam = settingsManager.SetFavoriteTeam(Championship);
+            if (SelectedTeam == string.Empty)
             {
-                string team;
-                using (ResXResourceSet reader = new ResXResourceSet($"{PathConstants.FavoriteTeam_WinFormApp}{settingsForm.Championship}FavoriteTeam.resx"))
-                {
-                    team = reader.GetString("Team");
-                }
-                ddlTeams.SelectedIndex = ddlTeams.FindStringExact(team);
+                ddlTeams.SelectedIndex = -1;
             }
+            else
+                ddlTeams.SelectedIndex = ddlTeams.FindStringExact(SelectedTeam);
         }
 
         private void ddlTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
             pnlPlayers.Controls.Clear();
             pnlFavoritePlayers.Controls.Clear();
-            SetSelectedTeam();
 
+            SetSelectedTeam();
             FillPanelWithPlayers();
         }
 
@@ -97,7 +110,7 @@ namespace WorldCupWindowsForms
         {
             try
             {
-                players = await manager.GetPlayers(SelectedTeam);
+                players = await manager.GetPlayers(GetFifaCode());
                 foreach (var p in players)
                 {
                     playerControl = new PlayerUC(p, this);
@@ -113,7 +126,7 @@ namespace WorldCupWindowsForms
             }
             catch (Exception)
             {
-                ShowMessage("Došlo je do pogreške kod učitavanja igrača");
+                MyException.ShowMessage(Resources.Messages.playerLoading);
                 return;
             }
         }
@@ -121,30 +134,49 @@ namespace WorldCupWindowsForms
         //Drag and drop
         private void Panels_DragEnter(object sender, DragEventArgs e)
         {
-            var startingPanel = playerControl.Parent;
-            var dropPanel = (FlowLayoutPanel)sender;
+            List<PlayerUC> multiDnD = e.Data.GetData(typeof(List<PlayerUC>)) as List<PlayerUC>;
 
-            if (startingPanel != dropPanel)
+            Control parent = multiDnD[0].Parent;
+            var startingPanel = (FlowLayoutPanel)sender;
+
+
+            if (startingPanel != parent && pnlFavoritePlayers.Controls.Count < 3)
             {
                 e.Effect = DragDropEffects.Move;
             }
-            else e.Effect = DragDropEffects.None;
+            else 
+                e.Effect = DragDropEffects.None;
+            
         }
 
         private void pnlPlayers_DragDrop(object sender, DragEventArgs e)
         {
             var dropPanel = (FlowLayoutPanel)sender;
+            List<PlayerUC> dropList = e.Data.GetData(typeof(List<PlayerUC>)) as List<PlayerUC>;
 
             if (dropPanel == pnlPlayers)
             {
-                pnlPlayers.Controls.Add(playerControl);
-            }
-            else if (dropPanel == pnlFavoritePlayers)
-            {
-                pnlFavoritePlayers.Controls.Add(playerControl);
+                foreach (var puc in dropList)
+                {
+                    puc.PlayerInUC.Favorite = !puc.PlayerInUC.Favorite;
+                    puc.CheckFavorite();
+                }
+
+                dropList.ForEach(puc => pnlPlayers.Controls.Add(puc));
+  
             }
 
-            playerControl.CheckFavorite();
+            else if (dropPanel == pnlFavoritePlayers)
+            {
+                foreach (var puc in dropList)
+                {
+                    puc.PlayerInUC.Favorite = !puc.PlayerInUC.Favorite;
+                    puc.CheckFavorite();
+                }
+
+                dropList.ForEach(puc => pnlFavoritePlayers.Controls.Add(puc));
+            }
+
         }
 
         //Players and PlayerUC logic
@@ -154,7 +186,7 @@ namespace WorldCupWindowsForms
             {
                 if (pnlFavoritePlayers.Controls.Count >= 3)
                 {
-                    ShowMessage("Maksimalno možete odabrati 3 favorita!");
+                    MyException.ShowMessage(Resources.Messages.favoriteMessage);
                     return;
                 }
                 pnlFavoritePlayers.Controls.Add(playerUC);
@@ -166,99 +198,39 @@ namespace WorldCupWindowsForms
                 FavPlayers.Remove(playerUC.Name);
             }
 
-            SaveFavorites();
             playerUC.CheckFavorite();
+            SaveFavorites();
         }
-
-
-        private void SaveFavorites()
-        {
-            IEnumerator<KeyValuePair<string, bool>> enumerator = FavPlayers.GetEnumerator();
-            using (ResXResourceWriter writer = new ResXResourceWriter(PathConstants.FavoritePlayers_WinFormApp))
-            {
-                while (enumerator.MoveNext())
-                    writer.AddResource(enumerator.Current.Key, enumerator.Current.Value);
-            }
-        }
-
 
         //Settings logic
         private void btnSettings_Click(object sender, EventArgs e) => ShowSettingsForm();
 
         private void ShowSettingsForm()
         {
-            var result = settingsForm.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                SetCulture(settingsForm.Language);
-                FillDdl();
-            }
+            SaveSelectedTeam();
+            var settingsForm = new SettingsForm(this);
+            settingsForm.Show();
+            settingsForm.TopMost = true;
         }
-
-        private void SetCulture(string language)
-        {
-            CultureInfo culture = new CultureInfo(language);
-
-            Thread.CurrentThread.CurrentCulture = culture;
-            Thread.CurrentThread.CurrentUICulture = culture;
-
-            this.Controls.Clear();
-            InitializeComponent();
-        }
-
 
         //Statistics form call
         private async void btnOpenStatisticsForm_Click(object sender, EventArgs e)
         {
             try
             {
-                matches = await manager.GetAllMatches(SelectedTeam);
+                matches = await manager.GetAllMatches(GetFifaCode());
+
+                StatisticsForm statisticsForm = new StatisticsForm(matches, players);
+                statisticsForm.ShowDialog();
             }
             catch (Exception)
             {
-                ShowMessage("Niste odabrali reprezentaciju");
+                MyException.ShowMessage(Resources.Messages.statisticsMessage);
                 return;
             }
-
-            StatisticsForm statisticsForm = new StatisticsForm(matches, players);
-            statisticsForm.ShowDialog();
         }
-
-
-        //Exception message
-        private static void ShowMessage(string message)
-        {
-            MessageBox.Show(message);
-            return;
-        }
-
 
         //Properties setting
-        private void FillFavoritePlayers()
-        {
-            if (File.Exists(PathConstants.FavoritePlayers_WinFormApp))
-            {
-                using (ResourceSet reader = new ResXResourceSet(PathConstants.FavoritePlayers_WinFormApp))
-                {
-                    IDictionaryEnumerator dict = reader.GetEnumerator();
-                    while (dict.MoveNext())
-                    {
-                        FavPlayers.Add(dict.Key.ToString(), (bool)dict.Value);
-                    }
-                }
-            }
-        }
-
-        private void SetSelectedTeam()
-        {
-            string team = ddlTeams.SelectedItem.ToString();
-            string fifaCode = team.Substring(team.LastIndexOf('(') + 1, 3);
-
-            SelectedTeam = fifaCode;
-        }
-
-        private void SetChampionship(string championshipType) => manager.Championship = championshipType;
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (ddlTeams.SelectedIndex == -1)
@@ -267,14 +239,14 @@ namespace WorldCupWindowsForms
             }
             else SaveSelectedTeam();
         }
+        private void FillFavoritePlayers() => FavPlayers = settingsManager.FillFavoritePlayers(FavPlayers);
 
-        private void SaveSelectedTeam()
-        {
-            string sex = settingsForm.Championship;
-            using (ResXResourceWriter writer = new ResXResourceWriter($"{PathConstants.FavoriteTeam_WinFormApp}{sex}FavoriteTeam.resx"))
-            {
-                writer.AddResource("Team", ddlTeams.SelectedItem.ToString());
-            }
-        }
+        private void SetSelectedTeam() => SelectedTeam = ddlTeams.SelectedItem.ToString();
+
+        private void SaveFavorites() => settingsManager.SaveFavoritePlayers(FavPlayers);
+
+        private void SaveSelectedTeam() => settingsManager.SaveFavoriteTeam(Championship, SelectedTeam);
+
+        private string GetFifaCode() => SelectedTeam.Substring(SelectedTeam.LastIndexOf('(') + 1, 3);
     }
 }

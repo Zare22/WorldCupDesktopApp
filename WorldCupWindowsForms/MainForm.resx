@@ -117,194 +117,194 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="btnOpenStatisticsForm.Text" xml:space="preserve">
-    <value>Statistika odabrane ekipe</value>
-  </data>
-  <data name="&gt;&gt;lblPickCountry.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1464, 794</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnOpenStatisticsForm.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="pnlPlayers.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnOpenStatisticsForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>633, 354</value>
-  </data>
-  <data name="lblPickCountry.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnOpenStatisticsForm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pnlFavoritePlayers.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;ddlTeams.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblPickCountry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;ddlTeams.Name" xml:space="preserve">
-    <value>ddlTeams</value>
-  </data>
-  <data name="&gt;&gt;btnOpenStatisticsForm.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblPickCountry.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="pnlPlayers.WrapContents" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="pnlFavoritePlayers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>578, 619</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Svjetsko Prvenstvo</value>
-  </data>
-  <data name="&gt;&gt;btnOpenStatisticsForm.Name" xml:space="preserve">
-    <value>btnOpenStatisticsForm</value>
-  </data>
-  <data name="pnlPlayers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>578, 619</value>
-  </data>
-  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1266, 12</value>
-  </data>
-  <data name="ddlTeams.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
-  <data name="&gt;&gt;pnlPlayers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
-    <value>btnSettings</value>
-  </data>
-  <data name="&gt;&gt;pnlPlayers.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;pnlPlayers.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="pnlFavoritePlayers.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="pnlPlayers.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>TopDown</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ddlTeams.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 80</value>
-  </data>
-  <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 43</value>
-  </data>
-  <data name="&gt;&gt;ddlTeams.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="ddlTeams.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="lblPickCountry.Text" xml:space="preserve">
-    <value>Odaberite omiljenu reprezentaciju:</value>
-  </data>
-  <data name="&gt;&gt;pnlPlayers.Name" xml:space="preserve">
-    <value>pnlPlayers</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ddlTeams.Location" type="System.Drawing.Point, System.Drawing">
+    <value>569, 80</value>
   </data>
   <data name="ddlTeams.Size" type="System.Drawing.Size, System.Drawing">
     <value>326, 28</value>
   </data>
-  <data name="&gt;&gt;pnlFavoritePlayers.Parent" xml:space="preserve">
-    <value>$this</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ddlTeams.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;lblPickCountry.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;ddlTeams.Name" xml:space="preserve">
+    <value>ddlTeams</value>
   </data>
-  <data name="btnOpenStatisticsForm.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblPickCountry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>608, 57</value>
-  </data>
-  <data name="btnOpenStatisticsForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 86</value>
-  </data>
-  <data name="pnlPlayers.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="btnSettings.Text" xml:space="preserve">
-    <value>Postavke</value>
-  </data>
-  <data name="&gt;&gt;pnlFavoritePlayers.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lblPickCountry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 20</value>
-  </data>
-  <data name="pnlFavoritePlayers.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="pnlPlayers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 163</value>
-  </data>
-  <data name="pnlFavoritePlayers.WrapContents" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="pnlFavoritePlayers.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>TopDown</value>
-  </data>
-  <data name="&gt;&gt;btnOpenStatisticsForm.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblPickCountry.Name" xml:space="preserve">
-    <value>lblPickCountry</value>
-  </data>
-  <data name="&gt;&gt;pnlFavoritePlayers.Name" xml:space="preserve">
-    <value>pnlFavoritePlayers</value>
+  <data name="&gt;&gt;ddlTeams.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ddlTeams.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="pnlFavoritePlayers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>874, 163</value>
+  <data name="&gt;&gt;ddlTeams.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;lblPickCountry.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
+  <data name="pnlPlayers.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="pnlPlayers.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="pnlPlayers.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="pnlPlayers.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="pnlPlayers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 163</value>
+  </data>
+  <data name="pnlPlayers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>578, 619</value>
+  </data>
+  <data name="pnlPlayers.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="pnlPlayers.WrapContents" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlPlayers.Name" xml:space="preserve">
+    <value>pnlPlayers</value>
+  </data>
+  <data name="&gt;&gt;pnlPlayers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlPlayers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlPlayers.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <metadata name="lblPickCountry.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="lblPickCountry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="lblPickCountry.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPickCountry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>614, 57</value>
+  </data>
+  <data name="lblPickCountry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 20</value>
+  </data>
+  <data name="lblPickCountry.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblPickCountry.Text" xml:space="preserve">
+    <value>Odaberite omiljenu reprezentaciju:</value>
+  </data>
+  <data name="&gt;&gt;lblPickCountry.Name" xml:space="preserve">
+    <value>lblPickCountry</value>
+  </data>
+  <data name="&gt;&gt;lblPickCountry.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPickCountry.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblPickCountry.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pnlFavoritePlayers.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="pnlFavoritePlayers.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pnlFavoritePlayers.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="pnlFavoritePlayers.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="pnlFavoritePlayers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>874, 163</value>
+  </data>
+  <data name="pnlFavoritePlayers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>578, 619</value>
+  </data>
+  <data name="pnlFavoritePlayers.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="pnlFavoritePlayers.WrapContents" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlFavoritePlayers.Name" xml:space="preserve">
+    <value>pnlFavoritePlayers</value>
+  </data>
   <data name="&gt;&gt;pnlFavoritePlayers.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="&gt;&gt;pnlFavoritePlayers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlFavoritePlayers.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnOpenStatisticsForm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnOpenStatisticsForm.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnOpenStatisticsForm.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="btnOpenStatisticsForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>633, 354</value>
+  </data>
+  <data name="btnOpenStatisticsForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 30</value>
+  </data>
+  <data name="btnOpenStatisticsForm.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnOpenStatisticsForm.Text" xml:space="preserve">
+    <value>Statistika odabrane ekipe</value>
+  </data>
+  <data name="&gt;&gt;btnOpenStatisticsForm.Name" xml:space="preserve">
+    <value>btnOpenStatisticsForm</value>
+  </data>
+  <data name="&gt;&gt;btnOpenStatisticsForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOpenStatisticsForm.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnOpenStatisticsForm.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnSettings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1266, 12</value>
+  </data>
+  <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 43</value>
+  </data>
+  <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnSettings.Text" xml:space="preserve">
+    <value>Postavke</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
+    <value>btnSettings</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -312,4 +312,22 @@
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1464, 794</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Svjetsko Prvenstvo</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Constants
 {
-    public static class PathConstants // not fully constants
+    public static class PathConstants
     {
         
         private static readonly string PROJECT_DIRECTORY = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
 
-        //"C:\\Users\\Leo\\source\\repos\\WorldCupDesktopApp\\WorldCupWindowsForms\\Resources\\Settings.resx"
+        
 
         private const string FORMS_RESOURCES = "\\WorldCupWindowsForms\\Resources\\";
         private const string WPF_RESOURCES = "\\WorldCupWPF\\Resources\\";
@@ -38,9 +38,9 @@ namespace DataLayer.Constants
 
         public static string Player_Images = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}PlayerImages\\";
 
-        public static string Settings_WinFormApp = $"{PROJECT_DIRECTORY}{FORMS_RESOURCES}Settings.resx";
+        public static string Settings = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}Settings.resx";
         public static string FavoritePlayers_WinFormApp = $"{PROJECT_DIRECTORY}{FORMS_RESOURCES}FavoritePlayers.resx";
-        public static string FavoriteTeam_WinFormApp = $"{PROJECT_DIRECTORY}{FORMS_RESOURCES}";
+        public static string FavoriteTeam = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}";
 
     }
 }

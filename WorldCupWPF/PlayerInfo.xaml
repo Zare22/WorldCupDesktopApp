@@ -1,0 +1,18 @@
+﻿<Window x:Class="WorldCupWPF.PlayerInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldCupWPF"
+        mc:Ignorable="d"
+        Title="PlayerInfo" Height="450" Width="250" Loaded="PlayerInfo_Loaded">
+    <StackPanel Orientation="Vertical">
+        <Image/>
+        <Label x:Name="lblName"/>
+        <Label x:Name="lblNumber"/>
+        <Label x:Name="lblPosition"/>
+        <Label x:Name="lblCaptain"/>
+        <Label x:Name="lblGoalsScored"/>
+        <Label x:Name="lblYellowCards"/>
+    </StackPanel>
+</Window>

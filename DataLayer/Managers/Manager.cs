@@ -12,6 +12,7 @@ namespace DataLayer.Managers
 {
     public class Manager
     {
+        private readonly SettingsManager settingsManager = new SettingsManager();
         private readonly IRepository repository;
         private bool testConnection => Connection();
 
@@ -28,7 +29,7 @@ namespace DataLayer.Managers
             }
         }
 
-        public string Championship { get; set; }
+        public string Championship => settingsManager.CheckForChampionshipType() ? "Men" : "Women";
 
         public Manager() => repository = RepositoryFactory.GetRepository(testConnection);
 

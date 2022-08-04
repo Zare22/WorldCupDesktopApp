@@ -1,0 +1,40 @@
+﻿<Window x:Class="WorldCupWPF.TeamInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WorldCupWPF"
+        mc:Ignorable="d"
+        Title="TeamInfo" Height="400" Width="350" FontSize="15" Loaded="TeamInfo_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <WrapPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" >
+            <Label Content="Naziv"/>
+            <Label Content="Fifa Kod"/>
+            <Label Content="Odigrane utakmice"/>
+            <Label Content="Pobjede"/>
+            <Label Content="Porazi"/>
+            <Label Content="Neriješeno"/>
+            <Label Content="Zabijeni golovi"/>
+            <Label Content="Primljeni golovi"/>
+            <Label Content="Gol razlika"/>
+        </WrapPanel>
+
+        <WrapPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
+            <Label x:Name="country"/>
+            <Label x:Name="fifaCode"/>
+            <Label x:Name="gamesPlayed"/>
+            <Label x:Name="wins"/>
+            <Label x:Name="losses"/>
+            <Label x:Name="draws"/>
+            <Label x:Name="goalsFor"/>
+            <Label x:Name="goalsAgainst"/>
+            <Label x:Name="goalDifferential"/>
+        </WrapPanel>
+        
+    </Grid>
+</Window>

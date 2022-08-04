@@ -122,6 +122,7 @@
             this.Controls.Add(this.lblLanguage);
             this.Controls.Add(this.lblChampionship);
             this.Name = "SettingsForm";
+            this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.groupBoxChampionship.ResumeLayout(false);
             this.groupBoxLanguage.ResumeLayout(false);
             this.ResumeLayout(false);

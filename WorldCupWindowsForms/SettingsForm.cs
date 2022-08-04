@@ -1,4 +1,6 @@
 ﻿using DataLayer.Constants;
+using DataLayer.Exceptions;
+using DataLayer.Managers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,61 +19,97 @@ namespace WorldCupWindowsForms
 {
     public partial class SettingsForm : Form
     {
-        public string Championship => GetChampionship();
-        public string Language => GetLanguage();
+        private readonly SettingsManager resourceManager = new SettingsManager();
+        private MainForm MainForm;
 
+        private string Championship => GetChampionship();
+        private string Language => GetLanguage();
 
         private string GetChampionship() => rbMale.Checked ? "Men" : "Women";
         private string GetLanguage() => rbCroatian.Checked ? "hr" : "en";
 
 
-        public SettingsForm()
+        public SettingsForm(MainForm mainForm)
         {
             InitializeComponent();
-
-            CheckForChampionshipType();
-            CheckForLanguage();
+            MainForm = mainForm;
         }
 
-        //relative
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+            CheckForLanguage();
+            CheckForChampionshipType();
+        }
+
+
         private void CheckForLanguage()
         {
-            if (File.Exists($"{PathConstants.Settings_WinFormApp}"))
+            try
             {
-                using (ResXResourceSet reader = new ResXResourceSet($"{PathConstants.Settings_WinFormApp}"))
+                if (!File.Exists($"{PathConstants.Settings}"))
                 {
-                    if (reader.GetString("Language") == "hr")
+                    rbCroatian.Checked = true;
+                    rbEnglish.Checked = false;
+                }
+                else
+                {
+                    if (resourceManager.CheckForLanguage())
                     {
                         rbCroatian.Checked = true;
                     }
-                    else rbEnglish.Checked = true;
+                    else
+                        rbEnglish.Checked = true;
                 }
             }
+            catch (Exception)
+            {
+                MyException.ShowMessage("Došlo je do pogreške sa postavkama");
+                return;
+            }
+
         }
 
         private void CheckForChampionshipType()
         {
-            if (File.Exists($"{PathConstants.Settings_WinFormApp}"))
+            try
             {
-                using (ResXResourceSet reader = new ResXResourceSet($"{PathConstants.Settings_WinFormApp}"))
+                if (!File.Exists($"{PathConstants.Settings}"))
                 {
-                    if (reader.GetString("Championship type") == "Men")
+                    rbMale.Checked = false;
+                    rbFemale.Checked = false;
+                }
+                else
+                {
+                    if (resourceManager.CheckForChampionshipType())
                     {
                         rbMale.Checked = true;
                     }
-                    else rbFemale.Checked = true;
+                    else
+                        rbFemale.Checked = true;
                 }
+            }
+            catch (Exception)
+            {
+                MyException.ShowMessage("Došlo je do pogreške sa postavkama");
+                return;
             }
         }
 
+        public void SaveSettingsToResources() => resourceManager.SaveSettingsToResources(Championship, Language);
+
         private void btnSaveSettings_Click(object sender, EventArgs e)
         {
-            using (ResXResourceWriter writer = new ResXResourceWriter($"{PathConstants.Settings_WinFormApp}"))
+            if (rbMale.Checked == false && rbFemale.Checked == false)
             {
-                writer.AddResource("Championship type", Championship);
-                writer.AddResource("Language", Language);
+                MessageBox.Show("Niste odabrali reprezentaciju!");
+                return;
             }
-            Close();
+            else
+            {
+                SaveSettingsToResources();
+                MainForm.SetForm();
+                Close();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

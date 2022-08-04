@@ -14,16 +14,20 @@ using System.IO;
 using WorldCupWindowsForms.Protocols;
 using DataLayer.Constants;
 using System.Collections;
+using DataLayer.Managers;
 
 namespace WorldCupWindowsForms.UserControls
 {
     public partial class PlayerUC : UserControl
     {
+        private readonly SettingsManager settingsManager = new SettingsManager();
         public Player PlayerInUC { get; set; }
 
         private IPlayerMovable playerMovable;
 
         private string imagesFolderPath = $"{PathConstants.Player_Images}";
+
+        private static IList<PlayerUC> dndList = new List<PlayerUC>();
 
         public PlayerUC(Player player, IPlayerMovable playerMovable)
         {
@@ -35,18 +39,8 @@ namespace WorldCupWindowsForms.UserControls
 
             this.Name = PlayerInUC.Name;
 
-            if (File.Exists(PathConstants.FavoritePlayers_WinFormApp))
-            {
-                using (ResourceSet reader = new ResXResourceSet(PathConstants.FavoritePlayers_WinFormApp))
-                {
-                    IDictionaryEnumerator dict = reader.GetEnumerator();
-                    while(dict.MoveNext())
-                        if (dict.Key.ToString() == PlayerInUC.Name)
-                        {
-                            PlayerInUC.Favorite = (bool)dict.Value;
-                        }
-                }
-            }
+
+            settingsManager.CheckFavoritePlayer(player);
 
             this.CheckFavorite();
 
@@ -66,13 +60,30 @@ namespace WorldCupWindowsForms.UserControls
 
         private void PlayerUC_MouseDown(object sender, MouseEventArgs e)
         {
+            object data = dndList.Count == 0 ? new List<PlayerUC> { this } : dndList;
+
             if (e.Button == MouseButtons.Left)
             {
-                PlayerUC player = (PlayerUC)sender;
-                player.DoDragDrop(player, DragDropEffects.Move | DragDropEffects.None);
+                if (sender is PlayerUC puc)
+                {
+                    puc.DoDragDrop(data, DragDropEffects.Move);
+                }
+            }
+
+            if (e.Button == MouseButtons.Left && (ModifierKeys & Keys.Control) == Keys.Control)
+            {
+                if (!(BackColor == Color.AliceBlue) && dndList.Count < 3)
+                {
+                    BackColor = Color.AliceBlue;
+                    dndList.Add(this);
+                }
+                else if (!(BackColor == DefaultBackColor))
+                {
+                    BackColor = DefaultBackColor;
+                    dndList.Remove(this);
+                }
             }
         }
-        //Multiple DnD
 
         private void imgPlayer_MouseClick(object sender, MouseEventArgs e)
         {
