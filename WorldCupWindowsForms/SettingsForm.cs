@@ -33,6 +33,8 @@ namespace WorldCupWindowsForms
         {
             InitializeComponent();
             MainForm = mainForm;
+            this.AcceptButton = btnSaveSettings;
+            this.CancelButton = btnCancel;
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
