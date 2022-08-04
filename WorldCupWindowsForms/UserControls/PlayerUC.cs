@@ -50,7 +50,7 @@ namespace WorldCupWindowsForms.UserControls
             {
                 imgPlayer.ImageLocation = imagePath;
             }
-            else imgPlayer.Image = Properties.Resources.FootballPlayer;
+            else imgPlayer.ImageLocation = PathConstants.FootbalPlayerImage;
 
             lblPlayerName.Text = PlayerInUC.Name;
             lblShirtNumberW.Text = PlayerInUC.ShirtNumber.ToString();

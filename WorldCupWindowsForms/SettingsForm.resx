@@ -173,11 +173,14 @@
   <data name="&gt;&gt;lblLanguage.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="groupBoxChampionship.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="rbFemale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 103</value>
+    <value>70, 95</value>
   </data>
   <data name="rbFemale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 24</value>
+    <value>297, 31</value>
   </data>
   <data name="rbFemale.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -201,16 +204,16 @@
     <value>0</value>
   </data>
   <data name="rbMale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 26</value>
+    <value>70, 25</value>
   </data>
   <data name="rbMale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 24</value>
+    <value>297, 37</value>
   </data>
   <data name="rbMale.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="rbMale.Text" xml:space="preserve">
-    <value>Muško Svjetsko Prvenstvo</value>
+    <value>Muško svjetsko prvenstvo</value>
   </data>
   <data name="rbMale.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -228,10 +231,10 @@
     <value>1</value>
   </data>
   <data name="groupBoxChampionship.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 56</value>
+    <value>12, 56</value>
   </data>
   <data name="groupBoxChampionship.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 172</value>
+    <value>445, 172</value>
   </data>
   <data name="groupBoxChampionship.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -248,11 +251,14 @@
   <data name="&gt;&gt;groupBoxChampionship.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="groupBoxLanguage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="rbEnglish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 103</value>
+    <value>97, 88</value>
   </data>
   <data name="rbEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 24</value>
+    <value>220, 37</value>
   </data>
   <data name="rbEnglish.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -276,10 +282,10 @@
     <value>0</value>
   </data>
   <data name="rbCroatian.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 26</value>
+    <value>97, 25</value>
   </data>
   <data name="rbCroatian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 24</value>
+    <value>220, 35</value>
   </data>
   <data name="rbCroatian.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -303,10 +309,10 @@
     <value>1</value>
   </data>
   <data name="groupBoxLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 281</value>
+    <value>12, 281</value>
   </data>
   <data name="groupBoxLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 172</value>
+    <value>445, 172</value>
   </data>
   <data name="groupBoxLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>

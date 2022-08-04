@@ -55,10 +55,10 @@
             // 
             // groupBoxChampionship
             // 
+            resources.ApplyResources(this.groupBoxChampionship, "groupBoxChampionship");
             this.groupBoxChampionship.BackColor = System.Drawing.SystemColors.Control;
             this.groupBoxChampionship.Controls.Add(this.rbFemale);
             this.groupBoxChampionship.Controls.Add(this.rbMale);
-            resources.ApplyResources(this.groupBoxChampionship, "groupBoxChampionship");
             this.groupBoxChampionship.Name = "groupBoxChampionship";
             this.groupBoxChampionship.TabStop = false;
             // 
@@ -76,10 +76,10 @@
             // 
             // groupBoxLanguage
             // 
+            resources.ApplyResources(this.groupBoxLanguage, "groupBoxLanguage");
             this.groupBoxLanguage.BackColor = System.Drawing.SystemColors.Control;
             this.groupBoxLanguage.Controls.Add(this.rbEnglish);
             this.groupBoxLanguage.Controls.Add(this.rbCroatian);
-            resources.ApplyResources(this.groupBoxLanguage, "groupBoxLanguage");
             this.groupBoxLanguage.Name = "groupBoxLanguage";
             this.groupBoxLanguage.TabStop = false;
             // 

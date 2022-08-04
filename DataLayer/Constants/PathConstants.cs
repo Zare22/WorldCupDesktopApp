@@ -41,6 +41,7 @@ namespace DataLayer.Constants
         public static string Settings = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}Settings.resx";
         public static string FavoritePlayers_WinFormApp = $"{PROJECT_DIRECTORY}{FORMS_RESOURCES}FavoritePlayers.resx";
         public static string FavoriteTeam = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}";
+        public static string FootbalPlayerImage = $"{PROJECT_DIRECTORY}{DATALAYER_RESOURCES}FootballPlayer.png";
 
     }
 }
