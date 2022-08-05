@@ -1,5 +1,6 @@
 ﻿using DataLayer.Constants;
 using DataLayer.Enums;
+using DataLayer.Exceptions;
 using DataLayer.Managers;
 using DataLayer.Models;
 using System;
@@ -26,6 +27,7 @@ namespace WorldCupWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Manager manager = new Manager();
 
         private IList<TeamFromResults> teamsFromResults;
         private IList<Match> matches;
@@ -34,48 +36,32 @@ namespace WorldCupWPF
         private TeamFromResults HomeTeam;
         private TeamFromResults AwayTeam;
 
-        private readonly Manager manager = new Manager();
 
         public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             if (!File.Exists(PathConstants.Settings))
             {
                 ShowSettingsWindow();
             }
-            InitializeComponent();
-        }
-
-        private void ShowSettingsWindow()
-        {
-            var settingsWindow = new Settings();
-            settingsWindow.Show();
-        }
-
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
             FillDdl();
         }
-
-        private async void FillOpponents()
-        {
-            matches = await manager.GetAllMatches(HomeTeam.FifaCode);
-
-            foreach (var m in matches)
-            {
-                if (m.HomeTeam.Code == HomeTeam.FifaCode)
-                {
-                    ddlOpponent.Items.Add(m.AwayTeam.ToString());
-                }
-                else
-                    ddlOpponent.Items.Add(m.HomeTeam.ToString());
-            }
-        }
-
         private async void FillDdl()
         {
-            
-            teamsFromResults = await manager.GetAllTeams();
-            teamsFromResults.ToList().ForEach(t => ddlTeams.Items.Add(t));
+            try
+            {
+                teamsFromResults = await manager.GetAllTeams();
+                teamsFromResults.ToList().ForEach(t => ddlTeams.Items.Add(t));
+            }
+            catch (Exception)
+            {
+                MyException.ShowMessage("Greška kod učitavanja timova");
+                return;
+            }
         }
 
         private void ddlTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -85,6 +71,30 @@ namespace WorldCupWPF
             SetTeam(ddlTeams);
             FillOpponents();
         }
+
+        private async void FillOpponents()
+        {
+            try
+            {
+                matches = await manager.GetAllMatches(HomeTeam.FifaCode);
+
+                foreach (var m in matches)
+                {
+                    if (m.HomeTeam.Code == HomeTeam.FifaCode)
+                    {
+                        ddlOpponent.Items.Add(m.AwayTeam.ToString());
+                    }
+                    else
+                        ddlOpponent.Items.Add(m.HomeTeam.ToString());
+                }
+            }
+            catch (Exception)
+            {
+                MyException.ShowMessage("Greška kod učitavanja protivnika");
+                return;
+            }
+        }
+
 
         private void btnHomeTeam_Click(object sender, RoutedEventArgs e)
         {
@@ -189,6 +199,7 @@ namespace WorldCupWPF
 
         private void SetTeam(ComboBox ddl)
         {
+            //Pitati profesora...
             try
             {
                 string team = ddl.SelectedItem.ToString();
@@ -211,16 +222,27 @@ namespace WorldCupWPF
             }
             catch (Exception)
             {
+                MyException.ShowMessage("Greška kod odabira tima");
                 return;
             }
-
-
         }
 
-        private void btnPostavke_Click(object sender, RoutedEventArgs e)
+        private void ShowSettingsWindow()
         {
-            Window settings = new Settings();
-            settings.ShowDialog();
+            var settingsWindow = new Settings(this);
+            settingsWindow.Topmost = true;
+            settingsWindow.Show();
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e) => ShowSettingsWindow();
+
+
+        private void AppClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Properties.Settings.Default.Height = this.Height;
+            Properties.Settings.Default.Width = this.Width;
+            Properties.Settings.Default.WindowState = this.WindowState;
+            Properties.Settings.Default.Save();
         }
     }
 }

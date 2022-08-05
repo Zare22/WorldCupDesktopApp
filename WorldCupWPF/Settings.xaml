@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldCupWPF"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800" Loaded="Settings_Loaded" Owner="MainWindow.xaml">
+        Title="Settings" Height="450" Width="800" Loaded="Settings_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -18,11 +18,11 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Odaberite rezoluciju:" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <ComboBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="200">
-            <ComboBoxItem>FullScreen</ComboBoxItem>
-            <ComboBoxItem>Rezolucija 1</ComboBoxItem>
-            <ComboBoxItem>Rezolucija 2</ComboBoxItem>
-            <ComboBoxItem>Rezolucija 3</ComboBoxItem>
+        <ComboBox x:Name="ddlResolution" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="200">
+            <ComboBoxItem>Full Screen</ComboBoxItem>
+            <ComboBoxItem>750x1050</ComboBoxItem>
+            <ComboBoxItem>900x1100</ComboBoxItem>
+            <ComboBoxItem>850x1200</ComboBoxItem>
         </ComboBox>
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="2" Margin="10">

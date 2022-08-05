@@ -5,9 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldCupWPF"
         mc:Ignorable="d"
-        Title="PlayerInfo" Height="450" Width="250" Loaded="PlayerInfo_Loaded">
+        Title="PlayerInfo" Height="450" Width="250" Loaded="PlayerInfo_Loaded" WindowStartupLocation="CenterOwner">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="(Window.Top)" From="0" To="250" Duration="0:0:.3"/>
+                        <DoubleAnimation Storyboard.TargetProperty="(Window.Left)" From="0" To="400" Duration="0:0:.3"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
+
     <StackPanel Orientation="Vertical">
-        <Image/>
+        <Image x:Name="playerImg" HorizontalAlignment="Center"/>
         <Label x:Name="lblName"/>
         <Label x:Name="lblNumber"/>
         <Label x:Name="lblPosition"/>

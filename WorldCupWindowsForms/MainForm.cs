@@ -33,13 +33,14 @@ namespace WorldCupWindowsForms
         private ISet<Player> players;
         private IList<Match> matches;
 
-        public string SelectedTeam;
-        public string Championship => manager.Championship;
+        private string SelectedTeam;
+        private string Championship => manager.Championship;
 
         public IDictionary<string, bool> FavPlayers { get; set; } = new Dictionary<string, bool>();
 
         public MainForm()
         {
+            //Iz nekog razloga mi defaultni jezik nije hrvatski...
             CultureInfo culture = new CultureInfo("hr");
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;

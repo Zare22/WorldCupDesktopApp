@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldCupWPF"
         mc:Ignorable="d"
-        Title="TeamInfo" Height="400" Width="350" FontSize="15" Loaded="TeamInfo_Loaded">
+        Title="TeamInfo" Height="400" Width="350" FontSize="15" Loaded="TeamInfo_Loaded" WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

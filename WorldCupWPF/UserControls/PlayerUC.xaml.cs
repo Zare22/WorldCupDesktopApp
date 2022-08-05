@@ -1,6 +1,8 @@
-﻿using DataLayer.Models;
+﻿using DataLayer.Constants;
+using DataLayer.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,7 @@ namespace WorldCupWPF.UserControls
     /// </summary>
     public partial class PlayerUC : UserControl
     {
+        private string imagesFolderPath = $"{PathConstants.Player_Images}";
         internal Player PlayerInUC { get; set; }
         internal Match SelectedMatch { get; set; }
 
@@ -38,6 +41,13 @@ namespace WorldCupWPF.UserControls
             SetGoalsAndYellows();
             lblNumber.Content = PlayerInUC.ShirtNumber;
             lblPlayerName.Content = PlayerInUC.Name;
+            string imagePath = $"{imagesFolderPath}{PlayerInUC.Name}.jpg";
+            if (File.Exists(imagePath))
+            {
+                imgPlayer.Source = new BitmapImage(new Uri(imagePath));
+            }
+            else
+                imgPlayer.Source = new BitmapImage(new Uri(PathConstants.FootbalPlayerImage));
         }
 
         private void SetGoalsAndYellows()

@@ -13,13 +13,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using WorldCupWindowsForms.Protocols;
 
 namespace WorldCupWindowsForms
 {
+
     public partial class SettingsForm : Form
     {
-        private readonly SettingsManager resourceManager = new SettingsManager();
+        private readonly SettingsManager settingsManager = new SettingsManager();
         private MainForm MainForm;
 
         private string Championship => GetChampionship();
@@ -28,13 +28,13 @@ namespace WorldCupWindowsForms
         private string GetChampionship() => rbMale.Checked ? "Men" : "Women";
         private string GetLanguage() => rbCroatian.Checked ? "hr" : "en";
 
-
         public SettingsForm(MainForm mainForm)
         {
             InitializeComponent();
             MainForm = mainForm;
             this.AcceptButton = btnSaveSettings;
             this.CancelButton = btnCancel;
+           
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -42,7 +42,6 @@ namespace WorldCupWindowsForms
             CheckForLanguage();
             CheckForChampionshipType();
         }
-
 
         private void CheckForLanguage()
         {
@@ -55,7 +54,7 @@ namespace WorldCupWindowsForms
                 }
                 else
                 {
-                    if (resourceManager.CheckForLanguage())
+                    if (settingsManager.CheckForLanguage())
                     {
                         rbCroatian.Checked = true;
                     }
@@ -82,7 +81,7 @@ namespace WorldCupWindowsForms
                 }
                 else
                 {
-                    if (resourceManager.CheckForChampionshipType())
+                    if (settingsManager.CheckForChampionshipType())
                     {
                         rbMale.Checked = true;
                     }
@@ -97,7 +96,7 @@ namespace WorldCupWindowsForms
             }
         }
 
-        public void SaveSettingsToResources() => resourceManager.SaveSettingsToResources(Championship, Language);
+        public void SaveSettingsToResources() => settingsManager.SaveSettingsToResources(Championship, Language);
 
         private void btnSaveSettings_Click(object sender, EventArgs e)
         {

@@ -3,10 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:WorldCupWPF.Properties"
         xmlns:local="clr-namespace:WorldCupWPF"
-        xmlns:uc="clr-namespace:WorldCupWPF.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1025" MinHeight="720" MinWidth="1025" Loaded="MainWindow_Loaded">
+        Title="MainWindow" 
+        Height="{Binding Source={x:Static p:Settings.Default}, Path=Height, Mode=TwoWay}" 
+        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=TwoWay}" 
+        WindowState="{Binding Source={x:Static p:Settings.Default}, Path=WindowState, Mode=TwoWay}"
+        MinHeight="720" MinWidth="1025" 
+        Loaded="MainWindow_Loaded" WindowStartupLocation="CenterScreen" 
+        Closing="AppClosing">
+    
     <Window.Resources>
         <ResourceDictionary Source="Styles/myStyles.xaml"/>
     </Window.Resources>
@@ -23,16 +30,62 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Postavke" Click="btnPostavke_Click" Margin="2" Padding="3"/>
+            <Button Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Postavke" Click="btnSettings_Click" Margin="2" Padding="3"/>
 
             <!--ComboBoxes for Teams-->
             <ComboBox x:Name="ddlTeams" Grid.Row="0" Grid.Column="0" SelectionChanged="ddlTeams_SelectionChanged"/>
             <ComboBox x:Name="ddlOpponent" Grid.Row="0" Grid.Column="2" SelectionChanged="ddlOpponents_SelectionChanged"/>
 
             <!--Buttons for info and label for score-->
-            <Button Content="Informacije o ekipi" Grid.Row="1" Style="{StaticResource ResourceKey= btnInfo}" Click="btnHomeTeam_Click"/>
+            <Button Content="Informacije o ekipi" Grid.Row="1" Style="{StaticResource btnInfo}" Click="btnHomeTeam_Click">
+                <Button.RenderTransform>
+                    <ScaleTransform x:Name="transform" ScaleX="1" ScaleY="1"/>
+                </Button.RenderTransform>
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="transform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:.5" To="1.4" AutoReverse="True" RepeatBehavior="Forever"/>
+                                <DoubleAnimation Storyboard.TargetName="transform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" Duration="0:0:.5" To="1.2" AutoReverse="True" RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="transform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:.5" To="1" AutoReverse="False"/>
+                                <DoubleAnimation Storyboard.TargetName="transform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" Duration="0:0:.5" To="1" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
+
             <Label x:Name="lblResult" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <Button Content="Informacije o ekipi" Grid.Row="1" Grid.Column="3" Style="{StaticResource ResourceKey= btnInfo}" Click="btnAwayTeam_Click"/>
+
+            <Button Content="Informacije o ekipi" Grid.Row="1" Style="{StaticResource btnInfo}" Grid.Column="3" Click="btnAwayTeam_Click">
+                <Button.RenderTransform>
+                    <ScaleTransform x:Name="transformSecond" ScaleX="1" ScaleY="1"/>
+                </Button.RenderTransform>
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="transformSecond" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:.5" To="1.4" AutoReverse="True" RepeatBehavior="Forever"/>
+                                <DoubleAnimation Storyboard.TargetName="transformSecond" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" Duration="0:0:.5" To="1.2" AutoReverse="True" RepeatBehavior="Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="transformSecond" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" Duration="0:0:.5" To="1" AutoReverse="False"/>
+                                <DoubleAnimation Storyboard.TargetName="transformSecond" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" Duration="0:0:.5" To="1" AutoReverse="False"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+            </Button>
         </Grid>
 
         <Grid x:Name="footballFieldGrid" Margin="25" DockPanel.Dock="Bottom">
@@ -61,5 +114,5 @@
             </Grid.Background>
         </Grid>
     </DockPanel>
-    
+
 </Window>

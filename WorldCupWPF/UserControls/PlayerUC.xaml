@@ -6,11 +6,14 @@
              xmlns:local="clr-namespace:WorldCupWPF.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="250" Loaded="PlayUC_Loaded">
+    
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,20" MouseDown="PlayerUC_Click">
 
+        
         <Label x:Name="lblNumber" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="10" Foreground="White" FontWeight="Bold"/>
-        <Image Source="C:\Users\Leo\source\repos\WorldCupDesktopApp\WorldCupWindowsForms\Resources\FootballPlayer.png" Grid.Row="1" Height="25" Width="25"/>
+        <Image x:Name="imgPlayer" Grid.Row="1" Height="25" Width="25"/>
         <Label x:Name="lblPlayerName" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="10" Foreground="White" FontWeight="Bold"/>
+        
 
     </StackPanel>
 

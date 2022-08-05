@@ -117,10 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Championship type" xml:space="preserve">
-    <value>Women</value>
-  </data>
-  <data name="Language" xml:space="preserve">
-    <value>en</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Team" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
 </root>

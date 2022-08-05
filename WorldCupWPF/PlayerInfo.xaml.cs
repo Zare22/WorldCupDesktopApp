@@ -1,6 +1,8 @@
-﻿using DataLayer.Models;
+﻿using DataLayer.Constants;
+using DataLayer.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,7 @@ namespace WorldCupWPF
     public partial class PlayerInfo : Window
     {
         private PlayerUC PlayerUC { get; set; }
-
+        private string imagesFolderPath = $"{PathConstants.Player_Images}";
 
         public PlayerInfo(PlayerUC player)
         {
@@ -32,7 +34,13 @@ namespace WorldCupWPF
 
         private void PlayerInfo_Loaded(object sender, RoutedEventArgs e)
         {
-
+            string imagePath = $"{imagesFolderPath}{PlayerUC.PlayerInUC.Name}.jpg";
+            if (File.Exists(imagePath))
+            {
+                playerImg.Source = new BitmapImage(new Uri(imagePath));
+            }
+            else
+                playerImg.Source = new BitmapImage(new Uri(PathConstants.FootbalPlayerImage));
             lblName.Content = PlayerUC.PlayerInUC.Name;
             lblNumber.Content = PlayerUC.PlayerInUC.ShirtNumber;
             lblCaptain.Content = PlayerUC.PlayerInUC.IsCaptain ? "Captain" : "No";
