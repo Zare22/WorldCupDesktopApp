@@ -1,26 +1,16 @@
 ﻿using DataLayer.Constants;
+using DataLayer.Exceptions;
 using DataLayer.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WorldCupWPF.UserControls
 {
-    /// <summary>
-    /// Interaction logic for PlayerUC.xaml
-    /// </summary>
     public partial class PlayerUC : UserControl
     {
         private string imagesFolderPath = $"{PathConstants.Player_Images}";
@@ -42,12 +32,19 @@ namespace WorldCupWPF.UserControls
             lblNumber.Content = PlayerInUC.ShirtNumber;
             lblPlayerName.Content = PlayerInUC.Name;
             string imagePath = $"{imagesFolderPath}{PlayerInUC.Name}.jpg";
-            if (File.Exists(imagePath))
+            try
             {
-                imgPlayer.Source = new BitmapImage(new Uri(imagePath));
+                if (File.Exists(imagePath))
+                {
+                    imgPlayer.Source = new BitmapImage(new Uri(imagePath));
+                }
+                else
+                    imgPlayer.Source = new BitmapImage(new Uri(PathConstants.FootbalPlayerImage));
             }
-            else
-                imgPlayer.Source = new BitmapImage(new Uri(PathConstants.FootbalPlayerImage));
+            catch (Exception)
+            {
+                MyException.ShowMessage($"{Properties.Resources.exceptionFile}");
+            }
         }
 
         private void SetGoalsAndYellows()
@@ -70,7 +67,7 @@ namespace WorldCupWPF.UserControls
         private void PlayerUC_Click(object sender, MouseButtonEventArgs e)
         {
             Window playerInfo = new PlayerInfo(this);
-            playerInfo.Show();
+            playerInfo.ShowDialog();
         }
     }
 }

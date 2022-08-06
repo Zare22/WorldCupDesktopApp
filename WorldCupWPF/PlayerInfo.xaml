@@ -4,8 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldCupWPF"
-        mc:Ignorable="d"
-        Title="PlayerInfo" Height="450" Width="250" Loaded="PlayerInfo_Loaded" WindowStartupLocation="CenterOwner">
+        mc:Ignorable="d" 
+        Height="375"
+        Width="250"
+        ResizeMode="NoResize"
+        Loaded="PlayerInfo_Loaded" WindowStartupLocation="CenterOwner"
+        FontSize="15" FontFamily="Comic Sans MS" FontStyle="Oblique" FontWeight="DemiBold">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="Navy"/>
+        </Style>
+    </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <EventTrigger.Actions>
@@ -19,13 +29,29 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <StackPanel Orientation="Vertical">
-        <Image x:Name="playerImg" HorizontalAlignment="Center"/>
-        <Label x:Name="lblName"/>
-        <Label x:Name="lblNumber"/>
-        <Label x:Name="lblPosition"/>
-        <Label x:Name="lblCaptain"/>
-        <Label x:Name="lblGoalsScored"/>
-        <Label x:Name="lblYellowCards"/>
-    </StackPanel>
+    <DockPanel>
+        <Grid Margin="5" DockPanel.Dock="Top">
+            <Image x:Name="playerImg" Width="250" Height="250" Stretch="UniformToFill" Opacity="0.4"/>
+            <Label x:Name="lblNumber" Content="99" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+            <Label x:Name="lblName" Content="Ime" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <Label x:Name="lblPosition" Content="Pozicija" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <Label x:Name="lblCaptain" Content="Kapetan" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+        </Grid>
+        <Grid Margin="5" DockPanel.Dock="Bottom" Height="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblGoalsScored" Content="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25">
+                <Label.Background>
+                    <ImageBrush ImageSource="Images/Ball.png" Stretch="UniformToFill" Opacity="0.3"/>
+                </Label.Background>
+            </Label>
+            <Label x:Name="lblYellowCards" Content="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25">
+                <Label.Background>
+                    <ImageBrush ImageSource="Images/YellowCard.png" Stretch="Uniform" Opacity="0.7"/>
+                </Label.Background>
+            </Label>
+        </Grid>
+    </DockPanel>
 </Window>

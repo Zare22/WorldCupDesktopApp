@@ -2,17 +2,8 @@
 using DataLayer.Exceptions;
 using DataLayer.Managers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace WorldCupWindowsForms
 {
@@ -34,7 +25,6 @@ namespace WorldCupWindowsForms
             MainForm = mainForm;
             this.AcceptButton = btnSaveSettings;
             this.CancelButton = btnCancel;
-           
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -64,7 +54,7 @@ namespace WorldCupWindowsForms
             }
             catch (Exception)
             {
-                MyException.ShowMessage("Došlo je do pogreške sa postavkama");
+                MyException.ShowMessage(Resources.Messages.settingsMessage);
                 return;
             }
 
@@ -91,7 +81,7 @@ namespace WorldCupWindowsForms
             }
             catch (Exception)
             {
-                MyException.ShowMessage("Došlo je do pogreške sa postavkama");
+                MyException.ShowMessage(Resources.Messages.settingsMessage);
                 return;
             }
         }
@@ -102,7 +92,7 @@ namespace WorldCupWindowsForms
         {
             if (rbMale.Checked == false && rbFemale.Checked == false)
             {
-                MessageBox.Show("Niste odabrali reprezentaciju!");
+                MessageBox.Show(Resources.Messages.settingsChooseChamp);
                 return;
             }
             else

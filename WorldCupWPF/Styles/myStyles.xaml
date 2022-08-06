@@ -8,12 +8,14 @@
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Grid.ColumnSpan" Value="2"/>
+        <Setter Property="Foreground" Value="DarkRed"/>
     </Style>
     
     <Style TargetType="{x:Type Label}">
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="25"/>
+        <Setter Property="Foreground" Value="DarkRed"/>
     </Style>
 
     <Style x:Key="btnInfo" TargetType="Button">
@@ -22,6 +24,13 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
+        <Setter Property="Foreground" Value="DarkRed"/>
+
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+        </Style.Resources>
 
         <!--<Setter Property="RenderTransform">
             <Setter.Value>

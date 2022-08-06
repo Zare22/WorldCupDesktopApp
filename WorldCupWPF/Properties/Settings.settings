@@ -3,13 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="Height" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">725</Value>
+      <Value Profile="(Default)">720</Value>
     </Setting>
     <Setting Name="Width" Type="System.Double" Scope="User">
       <Value Profile="(Default)">1100</Value>
     </Setting>
     <Setting Name="WindowState" Type="System.Windows.WindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
+    </Setting>
+    <Setting Name="Language" Type="System.String" Scope="User">
+      <Value Profile="(Default)">hr</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -22,24 +22,24 @@ namespace WorldCupWindowsForms.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Messages {
+    internal class DataGridLabels {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Messages() {
+        internal DataGridLabels() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WorldCupWindowsForms.Resources.Messages", typeof(Messages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WorldCupWindowsForms.Resources.DataGridLabels", typeof(DataGridLabels).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace WorldCupWindowsForms.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,65 +61,83 @@ namespace WorldCupWindowsForms.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maksimalno je moguće odabrati 3 favorita!.
+        ///   Looks up a localized string similar to Broj posjetitelja.
         /// </summary>
-        public static string favoriteMessage {
+        internal static string attendance {
             get {
-                return ResourceManager.GetString("favoriteMessage", resourceCulture);
+                return ResourceManager.GetString("attendance", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Došlo je do pogreške u radu sa datotekama.
+        ///   Looks up a localized string similar to Gost.
         /// </summary>
-        public static string fileException {
+        internal static string awayTeam {
             get {
-                return ResourceManager.GetString("fileException", resourceCulture);
+                return ResourceManager.GetString("awayTeam", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Došlo je do pogreške kod učitavanja igrača!.
+        ///   Looks up a localized string similar to Zabijeni golovi.
         /// </summary>
-        public static string playerLoading {
+        internal static string goals {
             get {
-                return ResourceManager.GetString("playerLoading", resourceCulture);
+                return ResourceManager.GetString("goals", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Odaberite prvenstvo!.
+        ///   Looks up a localized string similar to Domaćin.
         /// </summary>
-        public static string settingsChooseChamp {
+        internal static string homeTeam {
             get {
-                return ResourceManager.GetString("settingsChooseChamp", resourceCulture);
+                return ResourceManager.GetString("homeTeam", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Došlo je do pogreške sa postavkama!.
+        ///   Looks up a localized string similar to Lokacija.
         /// </summary>
-        public static string settingsMessage {
+        internal static string location {
             get {
-                return ResourceManager.GetString("settingsMessage", resourceCulture);
+                return ResourceManager.GetString("location", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Niste odabrali ekipu!.
+        ///   Looks up a localized string similar to Ime.
         /// </summary>
-        public static string statisticsMessage {
+        internal static string name {
             get {
-                return ResourceManager.GetString("statisticsMessage", resourceCulture);
+                return ResourceManager.GetString("name", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Došlo je do pogreške kod učitavanja timova!.
+        ///   Looks up a localized string similar to Slika.
         /// </summary>
-        public static string teamLoading {
+        internal static string picture {
             get {
-                return ResourceManager.GetString("teamLoading", resourceCulture);
+                return ResourceManager.GetString("picture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prezime.
+        /// </summary>
+        internal static string surname {
+            get {
+                return ResourceManager.GetString("surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Žuti kartoni.
+        /// </summary>
+        internal static string yellowCards {
+            get {
+                return ResourceManager.GetString("yellowCards", resourceCulture);
             }
         }
     }

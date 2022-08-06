@@ -5,29 +5,22 @@ using DataLayer.Managers;
 using DataLayer.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WorldCupWPF.UserControls;
 
 namespace WorldCupWPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private readonly Manager manager = new Manager();
+        private readonly SettingsManager settingsManager = new SettingsManager();
 
         private IList<TeamFromResults> teamsFromResults;
         private IList<Match> matches;
@@ -35,38 +28,75 @@ namespace WorldCupWPF
 
         private TeamFromResults HomeTeam;
         private TeamFromResults AwayTeam;
+        private string Championship => manager.Championship;
 
 
         public MainWindow()
         {
+            SetCulture();
             InitializeComponent();
+        }
+
+        private void SetCulture()
+        {
+            string language = Properties.Settings.Default.Language;
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!File.Exists(PathConstants.Settings))
+            try
             {
-                ShowSettingsWindow();
+                if (!File.Exists(PathConstants.Settings))
+                {
+                    ShowSettingsWindow();
+                }
+            }
+            catch (Exception)
+            {
+                MyException.ShowMessage($"{Properties.Resources.exceptionFile}");
+                return;
             }
             FillDdl();
         }
         private async void FillDdl()
         {
+            ddlTeams.Items.Clear();
             try
             {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Mouse.OverrideCursor = Cursors.Wait;
+                });
+                await Task.Delay(5000);
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Mouse.OverrideCursor = null;
+                });
+                //Prebrzo spremanje postavki
+
                 teamsFromResults = await manager.GetAllTeams();
-                teamsFromResults.ToList().ForEach(t => ddlTeams.Items.Add(t));
+                teamsFromResults.ToList().ForEach(t => ddlTeams.Items.Add(t.ToString()));
             }
             catch (Exception)
             {
-                MyException.ShowMessage("Greška kod učitavanja timova");
+                MyException.ShowMessage($"{Properties.Resources.exceptionTeams}");
                 return;
             }
+
+            string favTeam = settingsManager.SetFavoriteTeam(Championship);
+            if (favTeam == string.Empty)
+            {
+                ddlTeams.SelectedIndex = -1;
+            }
+            else
+                ddlTeams.SelectedItem = favTeam;
         }
 
         private void ddlTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ddlOpponent.Items.Clear();
+            ClearFootballField();
             lblResult.Content = string.Empty;
             SetTeam(ddlTeams);
             FillOpponents();
@@ -90,7 +120,7 @@ namespace WorldCupWPF
             }
             catch (Exception)
             {
-                MyException.ShowMessage("Greška kod učitavanja protivnika");
+                MyException.ShowMessage(Properties.Resources.exceptionOpp);
                 return;
             }
         }
@@ -222,16 +252,17 @@ namespace WorldCupWPF
             }
             catch (Exception)
             {
-                MyException.ShowMessage("Greška kod odabira tima");
                 return;
             }
         }
 
         private void ShowSettingsWindow()
         {
-            var settingsWindow = new Settings(this);
-            settingsWindow.Topmost = true;
-            settingsWindow.Show();
+            var settingsWindow = new Settings(this)
+            {
+                Topmost = true
+            };
+            settingsWindow.ShowDialog();
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e) => ShowSettingsWindow();
@@ -243,6 +274,16 @@ namespace WorldCupWPF
             Properties.Settings.Default.Width = this.Width;
             Properties.Settings.Default.WindowState = this.WindowState;
             Properties.Settings.Default.Save();
+
+            if (ddlTeams.SelectedIndex == -1)
+            {
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                settingsManager.SaveFavoriteTeam(Championship, ddlTeams.SelectedItem.ToString());
+            }
         }
+
     }
 }

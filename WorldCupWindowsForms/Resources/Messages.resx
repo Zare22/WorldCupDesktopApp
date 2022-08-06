@@ -120,8 +120,14 @@
   <data name="favoriteMessage" xml:space="preserve">
     <value>Maksimalno je moguće odabrati 3 favorita!</value>
   </data>
+  <data name="fileException" xml:space="preserve">
+    <value>Došlo je do pogreške u radu sa datotekama</value>
+  </data>
   <data name="playerLoading" xml:space="preserve">
     <value>Došlo je do pogreške kod učitavanja igrača!</value>
+  </data>
+  <data name="settingsChooseChamp" xml:space="preserve">
+    <value>Odaberite prvenstvo!</value>
   </data>
   <data name="settingsMessage" xml:space="preserve">
     <value>Došlo je do pogreške sa postavkama!</value>

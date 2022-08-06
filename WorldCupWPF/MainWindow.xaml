@@ -6,18 +6,27 @@
         xmlns:p="clr-namespace:WorldCupWPF.Properties"
         xmlns:local="clr-namespace:WorldCupWPF"
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="{x:Static p:Resources.mainWindowTitle}" 
         Height="{Binding Source={x:Static p:Settings.Default}, Path=Height, Mode=TwoWay}" 
         Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=TwoWay}" 
         WindowState="{Binding Source={x:Static p:Settings.Default}, Path=WindowState, Mode=TwoWay}"
         MinHeight="720" MinWidth="1025" 
         Loaded="MainWindow_Loaded" WindowStartupLocation="CenterScreen" 
-        Closing="AppClosing">
+        Closing="AppClosing" FontFamily="Comic Sans MS"
+        Icon="Images/Trophy.jpg">
     
     <Window.Resources>
         <ResourceDictionary Source="Styles/myStyles.xaml"/>
     </Window.Resources>
     <DockPanel>
+        <DockPanel.Background>
+            <LinearGradientBrush StartPoint="0, 0.5" EndPoint="1, 0.5">
+                <GradientStop Color="SkyBlue" Offset="0"/>
+                <GradientStop Color="White" Offset="0.5"/>
+                <GradientStop Color="SkyBlue" Offset="1"/>
+            </LinearGradientBrush>
+        </DockPanel.Background>
+        
         <Grid DockPanel.Dock="Top">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -30,14 +39,17 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Content="Postavke" Click="btnSettings_Click" Margin="2" Padding="3"/>
+            <Button Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btnSettings_Click" Margin="2" Padding="3" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="Images/settings.png" Height="30" Width="30"/>
+            </Button>
 
             <!--ComboBoxes for Teams-->
-            <ComboBox x:Name="ddlTeams" Grid.Row="0" Grid.Column="0" SelectionChanged="ddlTeams_SelectionChanged"/>
+            <ComboBox x:Name="ddlTeams" Grid.Row="0" Grid.Column="0" SelectionChanged="ddlTeams_SelectionChanged" SelectedValuePath="Content"/>
+
             <ComboBox x:Name="ddlOpponent" Grid.Row="0" Grid.Column="2" SelectionChanged="ddlOpponents_SelectionChanged"/>
 
             <!--Buttons for info and label for score-->
-            <Button Content="Informacije o ekipi" Grid.Row="1" Style="{StaticResource btnInfo}" Click="btnHomeTeam_Click">
+            <Button Content="{x:Static p:Resources.teamInfo}" Grid.Row="1" Style="{StaticResource btnInfo}" Click="btnHomeTeam_Click">
                 <Button.RenderTransform>
                     <ScaleTransform x:Name="transform" ScaleX="1" ScaleY="1"/>
                 </Button.RenderTransform>
@@ -63,7 +75,7 @@
 
             <Label x:Name="lblResult" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-            <Button Content="Informacije o ekipi" Grid.Row="1" Style="{StaticResource btnInfo}" Grid.Column="3" Click="btnAwayTeam_Click">
+            <Button Content="{x:Static p:Resources.teamInfo}" Grid.Row="1" Style="{StaticResource btnInfo}" Grid.Column="3" Click="btnAwayTeam_Click">
                 <Button.RenderTransform>
                     <ScaleTransform x:Name="transformSecond" ScaleX="1" ScaleY="1"/>
                 </Button.RenderTransform>

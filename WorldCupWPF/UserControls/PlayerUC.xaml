@@ -6,15 +6,19 @@
              xmlns:local="clr-namespace:WorldCupWPF.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="250" Loaded="PlayUC_Loaded">
-    
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Oblique"/>
+        </Style>
+    </UserControl.Resources>
+
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,20" MouseDown="PlayerUC_Click">
-
-        
-        <Label x:Name="lblNumber" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="10" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lblNumber" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
         <Image x:Name="imgPlayer" Grid.Row="1" Height="25" Width="25"/>
-        <Label x:Name="lblPlayerName" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="10" Foreground="White" FontWeight="Bold"/>
-        
-
+        <Label x:Name="lblPlayerName" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
     </StackPanel>
 
 </UserControl>

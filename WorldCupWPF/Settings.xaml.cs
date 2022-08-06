@@ -1,25 +1,12 @@
 ﻿using DataLayer.Constants;
+using DataLayer.Exceptions;
 using DataLayer.Managers;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WorldCupWPF
 {
-    /// <summary>
-    /// Interaction logic for Settings.xaml
-    /// </summary>
     public partial class Settings : Window
     {
         private readonly SettingsManager settingsManager = new SettingsManager();
@@ -71,46 +58,68 @@ namespace WorldCupWPF
 
         private void CheckForChampionshipType()
         {
-            if (!File.Exists($"{PathConstants.Settings}"))
+            try
             {
-                rbMale.IsChecked = false;
-                rbFemale.IsChecked = false;
-            }
-            else
-            {
-                if (settingsManager.CheckForChampionshipType())
+                if (!File.Exists($"{PathConstants.Settings}"))
                 {
-                    rbMale.IsChecked = true;
+                    rbMale.IsChecked = false;
+                    rbFemale.IsChecked = false;
                 }
                 else
-                    rbFemale.IsChecked = true;
+                {
+                    if (settingsManager.CheckForChampionshipType())
+                    {
+                        rbMale.IsChecked = true;
+                    }
+                    else
+                        rbFemale.IsChecked = true;
+                }
+            }
+            catch (Exception)
+            {
+                MyException.ShowMessage(Properties.Resources.exceptionFile);
+                return;
             }
         }
 
         private void CheckForLanguage()
         {
-            if (!File.Exists($"{PathConstants.Settings}"))
+            try
             {
-                rbCroatian.IsChecked = true;
-                rbEnglish.IsChecked = false;
-            }
-            else
-            {
-                if (settingsManager.CheckForLanguage())
+                if (!File.Exists($"{PathConstants.Settings}"))
                 {
                     rbCroatian.IsChecked = true;
+                    rbEnglish.IsChecked = false;
                 }
                 else
-                    rbEnglish.IsChecked = true;
+                {
+                    if (settingsManager.CheckForLanguage())
+                    {
+                        rbCroatian.IsChecked = true;
+                    }
+                    else
+                        rbEnglish.IsChecked = true;
+                }
+            }
+            catch (Exception)
+            {
+                MyException.ShowMessage(Properties.Resources.exceptionFile);
             }
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             SaveResolutionToResources();
+            SaveLanguage();
             RefreshMainWindow();
-            SaveSettingsToResources();
             Close();
+            SaveSettingsToResources();
+        }
+
+        private void SaveLanguage()
+        {
+            Properties.Settings.Default.Language = MyLanguage;
+            Properties.Settings.Default.Save();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e) => Close();

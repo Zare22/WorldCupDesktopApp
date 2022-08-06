@@ -4,27 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorldCupWPF"
+        xmlns:p="clr-namespace:WorldCupWPF.Properties"
         mc:Ignorable="d"
-        Title="TeamInfo" Height="400" Width="350" FontSize="15" Loaded="TeamInfo_Loaded" WindowStartupLocation="CenterOwner">
+        Height="400" Width="350" 
+        MinHeight="400" MinWidth="350"
+        FontSize="15" Loaded="TeamInfo_Loaded" WindowStartupLocation="CenterScreen"
+        FontFamily="Comic Sans MS" FontWeight="DemiBold">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="DarkRed"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <WrapPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" >
-            <Label Content="Naziv"/>
-            <Label Content="Fifa Kod"/>
-            <Label Content="Odigrane utakmice"/>
-            <Label Content="Pobjede"/>
-            <Label Content="Porazi"/>
-            <Label Content="Neriješeno"/>
-            <Label Content="Zabijeni golovi"/>
-            <Label Content="Primljeni golovi"/>
-            <Label Content="Gol razlika"/>
-        </WrapPanel>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" >
+            <Label Content="{x:Static p:Resources.teamInfoName}"/>
+            <Label Content="{x:Static p:Resources.teamInfoCode}"/>
+            <Label Content="{x:Static p:Resources.teamInfoPlayed}"/>
+            <Label Content="{x:Static p:Resources.teamInfoWins}"/>
+            <Label Content="{x:Static p:Resources.teamInfoLoss}"/>
+            <Label Content="{x:Static p:Resources.teamInfoDraw}"/>
+            <Label Content="{x:Static p:Resources.teamInfoScored}"/>
+            <Label Content="{x:Static p:Resources.teamInfoConceded}"/>
+            <Label Content="{x:Static p:Resources.teamInfoGADiff}"/>
+        </StackPanel>
 
-        <WrapPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
             <Label x:Name="country"/>
             <Label x:Name="fifaCode"/>
             <Label x:Name="gamesPlayed"/>
@@ -34,7 +43,15 @@
             <Label x:Name="goalsFor"/>
             <Label x:Name="goalsAgainst"/>
             <Label x:Name="goalDifferential"/>
-        </WrapPanel>
-        
+        </StackPanel>
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0, 0.5" EndPoint="1, 0.5">
+                <GradientStop Color="SkyBlue" Offset="0"/>
+                <GradientStop Color="White" Offset="0.5"/>
+                <GradientStop Color="SkyBlue" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
     </Grid>
 </Window>

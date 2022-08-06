@@ -25,7 +25,7 @@ namespace WorldCupWPF.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("725")]
+        [global::System.Configuration.DefaultSettingValueAttribute("720")]
         public double Height {
             get {
                 return ((double)(this["Height"]));
@@ -56,6 +56,18 @@ namespace WorldCupWPF.Properties {
             }
             set {
                 this["WindowState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("hr")]
+        public string Language {
+            get {
+                return ((string)(this["Language"]));
+            }
+            set {
+                this["Language"] = value;
             }
         }
     }

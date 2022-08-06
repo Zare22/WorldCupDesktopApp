@@ -3,13 +3,9 @@ using DataLayer.Exceptions;
 using DataLayer.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WorldCupWindowsForms
@@ -19,7 +15,8 @@ namespace WorldCupWindowsForms
         private IList<Match> Matches { get; set; }
         private ISet<Player> Players { get; set; }
 
-        private string imagesPath = PathConstants.FootbalPlayerImage;
+        private string savedImage = PathConstants.Player_Images;
+        private string defaultImage = PathConstants.FootbalPlayerImage;
 
         public StatisticsForm(IList<Match> matches, ISet<Player> players)
         {
@@ -45,10 +42,10 @@ namespace WorldCupWindowsForms
 
         private void FillMatchesStats()
         {
-            matchesStats.Columns.Add("location", "Lokacija");
-            matchesStats.Columns.Add("attendance", "Broj posjetitelja");
-            matchesStats.Columns.Add("homeTeam", "Domaćin");
-            matchesStats.Columns.Add("awayTeam", "Gost");
+            matchesStats.Columns.Add("location", Resources.DataGridLabels.location);
+            matchesStats.Columns.Add("attendance", Resources.DataGridLabels.attendance);
+            matchesStats.Columns.Add("homeTeam", Resources.DataGridLabels.homeTeam);
+            matchesStats.Columns.Add("awayTeam", Resources.DataGridLabels.awayTeam);
 
             Matches.ToList().ForEach(m => matchesStats.Rows.Add(m.Location, m.Attendance, m.HomeTeam.Country, m.AwayTeam.Country));
         }
@@ -62,30 +59,41 @@ namespace WorldCupWindowsForms
                 DataPropertyName = "playerImage",
                 Visible = true,
                 Name = "playerImage",
-                HeaderText = "Slika"
+                HeaderText = Resources.DataGridLabels.picture
             };
 
 
             playersStats.Columns.Add(playerImage);
-            playersStats.Columns.Add("name", "Ime");
-            playersStats.Columns.Add("goals", "Zabijeni golovi");
-            playersStats.Columns.Add("yellows", "Žuti kartoni");
+            playersStats.Columns.Add("name", Resources.DataGridLabels.name);
+            playersStats.Columns.Add("goals", Resources.DataGridLabels.goals);
+            playersStats.Columns.Add("yellows", Resources.DataGridLabels.yellowCards);
 
             foreach (var p in Players)
             {
-                if (File.Exists($"{imagesPath}{p.Name}.jpg"))
+                try
                 {
-                    playersStats.Rows.Add(
-                        Image.FromFile($"{imagesPath}{p.Name}.jpg"),
-                        p.Name,
-                        p.GoalsScored,
-                        p.YellowCards);
+                    if (File.Exists($"{savedImage}{p.Name}.jpg"))
+                    {
+                        playersStats.Rows.Add(
+                            Image.FromFile($"{savedImage}{p.Name}.jpg"),
+                            p.Name,
+                            p.GoalsScored,
+                            p.YellowCards);
+                    }
+                    else
+                    {
+                        playersStats.Rows.Add(
+                                Image.FromFile($"{defaultImage}"),
+                                p.Name,
+                                p.GoalsScored,
+                                p.YellowCards);
+                    }
                 }
-                playersStats.Rows.Add(
-                        Image.FromFile($"{imagesPath}"),
-                        p.Name,
-                        p.GoalsScored,
-                        p.YellowCards);
+                catch (Exception)
+                {
+                    MyException.ShowMessage(Resources.Messages.fileException);
+                    return;
+                }
             }
 
         }

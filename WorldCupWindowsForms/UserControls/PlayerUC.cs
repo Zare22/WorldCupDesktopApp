@@ -1,20 +1,13 @@
 ﻿using DataLayer.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Resources;
-using System.Drawing.Imaging;
 using System.IO;
 using WorldCupWindowsForms.Protocols;
 using DataLayer.Constants;
-using System.Collections;
 using DataLayer.Managers;
+using DataLayer.Exceptions;
 
 namespace WorldCupWindowsForms.UserControls
 {
@@ -46,11 +39,18 @@ namespace WorldCupWindowsForms.UserControls
 
             string imagePath = $"{imagesFolderPath}{PlayerInUC.Name}.jpg";
 
-            if (File.Exists(imagePath))
+            try
             {
-                imgPlayer.ImageLocation = imagePath;
+                if (File.Exists(imagePath))
+                {
+                    imgPlayer.ImageLocation = imagePath;
+                }
+                else imgPlayer.ImageLocation = PathConstants.FootbalPlayerImage;
             }
-            else imgPlayer.ImageLocation = PathConstants.FootbalPlayerImage;
+            catch (Exception)
+            {
+                MyException.ShowMessage(Resources.Messages.fileException);
+            }
 
             lblPlayerName.Text = PlayerInUC.Name;
             lblShirtNumberW.Text = PlayerInUC.ShirtNumber.ToString();

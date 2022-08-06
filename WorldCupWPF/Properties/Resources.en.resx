@@ -118,75 +118,75 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="exceptionFile" xml:space="preserve">
-    <value>Greška pri radu sa datotekama</value>
+    <value>Something went wrong with file system</value>
   </data>
   <data name="exceptionOpp" xml:space="preserve">
-    <value>Greška pri učitavanju protivnika</value>
+    <value>Something went wrong with opponent loading</value>
   </data>
   <data name="exceptionTeams" xml:space="preserve">
-    <value>Greška pri učitavanju timova</value>
+    <value>Something went wrong with teams loading</value>
   </data>
   <data name="mainWindowTitle" xml:space="preserve">
-    <value>Svjetsko prvenstvo</value>
+    <value>World Cup</value>
   </data>
   <data name="settingsCancel" xml:space="preserve">
-    <value>Odustani</value>
+    <value>Cancel</value>
   </data>
   <data name="settingsChampionship" xml:space="preserve">
-    <value>Odaberite prvenstvo:</value>
+    <value>Choose championship:</value>
   </data>
   <data name="settingsCro" xml:space="preserve">
-    <value>Hrvatski jezik</value>
+    <value>Croatian language</value>
   </data>
   <data name="settingsEn" xml:space="preserve">
-    <value>Engleski jezik</value>
+    <value>English language</value>
   </data>
   <data name="settingsFemaleChamp" xml:space="preserve">
-    <value>Žensko svjetsko prvenstvo</value>
+    <value>Female World Cup 2019</value>
   </data>
   <data name="settingsLanguage" xml:space="preserve">
-    <value>Odaberite jezik:</value>
+    <value>Choose language:</value>
   </data>
   <data name="settingsMaleChamp" xml:space="preserve">
-    <value>Muško svjetsko prvenstvo</value>
+    <value>Male World Cup 2018</value>
   </data>
   <data name="settingsResolution" xml:space="preserve">
-    <value>Odaberite rezoluciju:</value>
+    <value>Choose your screen resolution:</value>
   </data>
   <data name="settingsSave" xml:space="preserve">
-    <value>Spremi</value>
+    <value>Save</value>
   </data>
   <data name="settingsTitle" xml:space="preserve">
-    <value>Postavke</value>
+    <value>Settings</value>
   </data>
   <data name="teamInfo" xml:space="preserve">
-    <value>Informacije o ekipi</value>
+    <value>Team info</value>
   </data>
   <data name="teamInfoCode" xml:space="preserve">
-    <value>Fifa kod</value>
+    <value>Fifa code</value>
   </data>
   <data name="teamInfoConceded" xml:space="preserve">
-    <value>Primljeni golovi</value>
+    <value>Goals conceded</value>
   </data>
   <data name="teamInfoDraw" xml:space="preserve">
-    <value>Neriješeno</value>
+    <value>Draws</value>
   </data>
   <data name="teamInfoGADiff" xml:space="preserve">
-    <value>Gol razlika</value>
+    <value>Goal difference</value>
   </data>
   <data name="teamInfoLoss" xml:space="preserve">
-    <value>Porazi</value>
+    <value>Losses</value>
   </data>
   <data name="teamInfoName" xml:space="preserve">
-    <value>Naziv</value>
+    <value>Name</value>
   </data>
   <data name="teamInfoPlayed" xml:space="preserve">
-    <value>Odigrane utakmice</value>
+    <value>Games played</value>
   </data>
   <data name="teamInfoScored" xml:space="preserve">
-    <value>Zabijeni golovi</value>
+    <value>Goals scored</value>
   </data>
   <data name="teamInfoWins" xml:space="preserve">
-    <value>Pobjede</value>
+    <value>Wins</value>
   </data>
 </root>

@@ -96,6 +96,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Protocols\IPlayerMovable.cs" />
+    <Compile Include="Resources\DataGridLabels.en.Designer.cs">
+      <DependentUpon>DataGridLabels.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\DataGridLabels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataGridLabels.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Messages.en.Designer.cs">
       <DependentUpon>Messages.en.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -135,6 +145,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DataGridLabels.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DataGridLabels.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\DataGridLabels.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DataGridLabels.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.en.Designer.cs</LastGenOutput>
@@ -154,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PlayerUC.en.resx">
+      <DependentUpon>PlayerUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PlayerUC.resx">
       <DependentUpon>PlayerUC.cs</DependentUpon>

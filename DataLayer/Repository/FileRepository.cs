@@ -15,7 +15,7 @@ namespace DataLayer.Repository
     {
         public Task<IList<TeamFromResults>> GetAllTeams(string championship)
         {
-            return Task.Run(async () =>
+            return Task.Run(() =>
             {
                 var stringJson = File.ReadAllText(PathConstants.GetTeamsChampionshipType(championship));
                 return TeamFromResults.FromJson(stringJson);
@@ -24,7 +24,7 @@ namespace DataLayer.Repository
 
         public Task<IList<Match>> GetMatchesByCode(string fifaCode, string championship)
         {
-            return Task.Run(async () =>
+            return Task.Run(() =>
             {
                 var stringJson = File.ReadAllText($"{PathConstants.GetMatchesChampionshipType(championship)}{fifaCode}.json");
                 return Match.FromJson(stringJson);
@@ -33,7 +33,7 @@ namespace DataLayer.Repository
 
         public Task<ISet<Player>> GetPlayers(string fifaCode, string championship)
         {
-            return Task.Run(async () =>
+            return Task.Run(() =>
             {
                 var stringJson = File.ReadAllText($"{PathConstants.GetMatchesChampionshipType(championship)}{fifaCode}.json");
                 var matches = Match.FromJson(stringJson);

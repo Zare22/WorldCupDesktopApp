@@ -120,8 +120,14 @@
   <data name="favoriteMessage" xml:space="preserve">
     <value>Maximum number of favorite players is 3!</value>
   </data>
+  <data name="fileException" xml:space="preserve">
+    <value>Something went wrong with file system</value>
+  </data>
   <data name="playerLoading" xml:space="preserve">
     <value>Something went wrong when loading players!</value>
+  </data>
+  <data name="settingsChooseChamp" xml:space="preserve">
+    <value>Please select championship</value>
   </data>
   <data name="settingsMessage" xml:space="preserve">
     <value>Something went wrong with settings!</value>

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataLayer.Models;
 using DataLayer.Managers;
@@ -14,10 +9,7 @@ using System.IO;
 using System.Globalization;
 using System.Threading;
 using WorldCupWindowsForms.Protocols;
-using System.Reflection;
 using DataLayer.Constants;
-using System.Resources;
-using System.Collections;
 using DataLayer.Exceptions;
 
 namespace WorldCupWindowsForms
@@ -40,37 +32,44 @@ namespace WorldCupWindowsForms
 
         public MainForm()
         {
-            //Iz nekog razloga mi defaultni jezik nije hrvatski...
-            CultureInfo culture = new CultureInfo("hr");
-            Thread.CurrentThread.CurrentCulture = culture;
-            Thread.CurrentThread.CurrentUICulture = culture;
-
+            SetCulture();
             InitializeComponent(); 
         }
 
-        //Main form logic
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            FillFavoritePlayers();
-            if (!File.Exists(PathConstants.Settings))
-            {
-                ShowSettingsForm();
-            }
-            else
-            {
-                SetForm();
-            }
-        }
-
-        public void SetForm()
+        private void SetCulture()
         {
             string language = settingsManager.CheckForLanguage() ? "hr" : "en";
             CultureInfo culture = new CultureInfo(language);
 
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
+        }
 
+        //Main form logic
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            FillFavoritePlayers();
+            try
+            {
+                if (!File.Exists(PathConstants.Settings))
+                {
+                    ShowSettingsForm();
+                }
+                else
+                {
+                    SetForm();
+                }
+            }
+            catch (Exception)
+            {
+                MyException.ShowMessage(Resources.Messages.fileException);
+                return;
+            }
+        }
 
+        public void SetForm()
+        {
+            SetCulture();
             this.Controls.Clear();
             InitializeComponent();
             FillDdl();
@@ -210,8 +209,8 @@ namespace WorldCupWindowsForms
         {
             SaveSelectedTeam();
             var settingsForm = new SettingsForm(this);
-            settingsForm.Show();
             settingsForm.TopMost = true;
+            settingsForm.ShowDialog();
         }
 
         //Statistics form call
