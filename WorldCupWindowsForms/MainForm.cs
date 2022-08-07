@@ -11,6 +11,7 @@ using System.Threading;
 using WorldCupWindowsForms.Protocols;
 using DataLayer.Constants;
 using DataLayer.Exceptions;
+using System.Threading.Tasks;
 
 namespace WorldCupWindowsForms
 {
@@ -79,8 +80,10 @@ namespace WorldCupWindowsForms
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 var teams = await manager.GetAllTeams();
                 teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
+                this.Cursor = Cursors.Default;
             }
             catch (Exception)
             {
@@ -110,6 +113,7 @@ namespace WorldCupWindowsForms
         {
             try
             {
+                this.Cursor = Cursors.WaitCursor;
                 players = await manager.GetPlayers(GetFifaCode());
                 foreach (var p in players)
                 {
@@ -123,6 +127,7 @@ namespace WorldCupWindowsForms
                         pnlPlayers.Controls.Add(playerControl);
                     }
                 }
+                this.Cursor = Cursors.Default;
             }
             catch (Exception)
             {
@@ -218,10 +223,13 @@ namespace WorldCupWindowsForms
         {
             try
             {
-                matches = await manager.GetAllMatches(GetFifaCode());
+                this.Cursor = Cursors.WaitCursor;
 
+                matches = await manager.GetAllMatches(GetFifaCode());
                 StatisticsForm statisticsForm = new StatisticsForm(matches, players);
                 statisticsForm.ShowDialog();
+
+                this.Cursor = Cursors.Default;
             }
             catch (Exception)
             {

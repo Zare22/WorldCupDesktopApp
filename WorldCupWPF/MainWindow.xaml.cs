@@ -108,7 +108,17 @@ namespace WorldCupWPF
         {
             try
             {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Mouse.OverrideCursor = Cursors.Wait;
+                });
+
                 matches = await manager.GetAllMatches(HomeTeam.FifaCode);
+
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Mouse.OverrideCursor = null;
+                });
 
                 foreach (var m in matches)
                 {
