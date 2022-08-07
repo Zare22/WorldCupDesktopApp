@@ -30,12 +30,21 @@ namespace WorldCupWPF
         private TeamFromResults AwayTeam;
         private string Championship => manager.Championship;
 
+        private string oldChampionship;
+
 
         public MainWindow()
         {
-            if (!File.Exists(PathConstants.Settings))
+            try
             {
-                ShowSettingsWindow();
+                if (!File.Exists(PathConstants.Settings))
+                {
+                    ShowSettingsWindow();
+                }
+            }
+            catch (Exception)
+            {
+                MyException.ShowMessage(Properties.Resources.exceptionFile);
             }
             SetCulture();
             InitializeComponent();
@@ -43,48 +52,33 @@ namespace WorldCupWPF
 
         private void SetCulture()
         {
-            string language = Properties.Settings.Default.Language;
+            string language = settingsManager.CheckForLanguage() ? "hr" : "en";
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    if (!File.Exists(PathConstants.Settings))
-            //    {
-            //        ShowSettingsWindow();
-            //    }
-            //    else
-            //    {
-            //        FillDdl();
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    MyException.ShowMessage($"{Properties.Resources.exceptionFile}");
-            //    return;
-            //}
             FillDdl();
+            oldChampionship = Championship;
         }
+
         private async void FillDdl()
         {
             ddlTeams.Items.Clear();
             try
             {
-                //Application.Current.Dispatcher.Invoke(() =>
-                //{
-                //    Mouse.OverrideCursor = Cursors.Wait;
-                //});
-                //await Task.Delay(5000);
-                //Application.Current.Dispatcher.Invoke(() =>
-                //{
-                //    Mouse.OverrideCursor = null;
-                //});
-                //Prebrzo spremanje postavki
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Mouse.OverrideCursor = Cursors.Wait;
+                });
 
                 teamsFromResults = await manager.GetAllTeams();
                 teamsFromResults.ToList().ForEach(t => ddlTeams.Items.Add(t.ToString()));
+
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Mouse.OverrideCursor = null;
+                });
             }
             catch (Exception)
             {
@@ -136,14 +130,28 @@ namespace WorldCupWPF
 
         private void btnHomeTeam_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new TeamInfo(HomeTeam);
-            window.ShowDialog();
+            if (!(ddlTeams.SelectedIndex == -1))
+            {
+                Window window = new TeamInfo(HomeTeam);
+                window.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.mainWindowTeamNotSelected);
+            }
         }
 
         private void btnAwayTeam_Click(object sender, RoutedEventArgs e)
         {
-            Window window = new TeamInfo(AwayTeam);
-            window.ShowDialog();
+            if (!(ddlOpponent.SelectedIndex == -1))
+            {
+                Window window = new TeamInfo(AwayTeam);
+                window.ShowDialog(); 
+            }
+            else
+            {
+                MessageBox.Show(Properties.Resources.mainWindowTeamNotSelected);
+            }
         }
 
         private void ddlOpponents_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -273,7 +281,12 @@ namespace WorldCupWPF
             settingsWindow.ShowDialog();
         }
 
-        private void btnSettings_Click(object sender, RoutedEventArgs e) => ShowSettingsWindow();
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            settingsManager.SaveFavoriteTeam(Championship, ddlTeams.SelectedItem.ToString());
+            oldChampionship = Championship;
+            ShowSettingsWindow();
+        }
 
 
         private void AppClosing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -289,7 +302,7 @@ namespace WorldCupWPF
             }
             else
             {
-                settingsManager.SaveFavoriteTeam(Championship, ddlTeams.SelectedItem.ToString());
+                settingsManager.SaveFavoriteTeam(oldChampionship, ddlTeams.SelectedItem.ToString());
             }
         }
 

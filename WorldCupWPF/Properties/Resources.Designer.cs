@@ -88,6 +88,15 @@ namespace WorldCupWPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Odaberite tim.
+        /// </summary>
+        public static string mainWindowTeamNotSelected {
+            get {
+                return ResourceManager.GetString("mainWindowTeamNotSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Svjetsko prvenstvo.
         /// </summary>
         public static string mainWindowTitle {

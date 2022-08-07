@@ -126,6 +126,9 @@
   <data name="exceptionTeams" xml:space="preserve">
     <value>Greška pri učitavanju timova</value>
   </data>
+  <data name="mainWindowTeamNotSelected" xml:space="preserve">
+    <value>Odaberite tim</value>
+  </data>
   <data name="mainWindowTitle" xml:space="preserve">
     <value>Svjetsko prvenstvo</value>
   </data>

@@ -126,6 +126,9 @@
   <data name="exceptionTeams" xml:space="preserve">
     <value>Something went wrong with teams loading</value>
   </data>
+  <data name="mainWindowTeamNotSelected" xml:space="preserve">
+    <value>Please select your team</value>
+  </data>
   <data name="mainWindowTitle" xml:space="preserve">
     <value>World Cup</value>
   </data>
