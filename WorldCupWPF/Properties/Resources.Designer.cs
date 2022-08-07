@@ -115,6 +115,15 @@ namespace WorldCupWPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Odaberite prvenstvo.
+        /// </summary>
+        public static string settingsChoosePlease {
+            get {
+                return ResourceManager.GetString("settingsChoosePlease", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hrvatski jezik.
         /// </summary>
         public static string settingsCro {

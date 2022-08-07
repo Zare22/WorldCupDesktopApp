@@ -33,6 +33,10 @@ namespace WorldCupWPF
 
         public MainWindow()
         {
+            if (!File.Exists(PathConstants.Settings))
+            {
+                ShowSettingsWindow();
+            }
             SetCulture();
             InitializeComponent();
         }
@@ -45,18 +49,22 @@ namespace WorldCupWPF
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (!File.Exists(PathConstants.Settings))
-                {
-                    ShowSettingsWindow();
-                }
-            }
-            catch (Exception)
-            {
-                MyException.ShowMessage($"{Properties.Resources.exceptionFile}");
-                return;
-            }
+            //try
+            //{
+            //    if (!File.Exists(PathConstants.Settings))
+            //    {
+            //        ShowSettingsWindow();
+            //    }
+            //    else
+            //    {
+            //        FillDdl();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    MyException.ShowMessage($"{Properties.Resources.exceptionFile}");
+            //    return;
+            //}
             FillDdl();
         }
         private async void FillDdl()
@@ -64,15 +72,15 @@ namespace WorldCupWPF
             ddlTeams.Items.Clear();
             try
             {
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    Mouse.OverrideCursor = Cursors.Wait;
-                });
-                await Task.Delay(5000);
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    Mouse.OverrideCursor = null;
-                });
+                //Application.Current.Dispatcher.Invoke(() =>
+                //{
+                //    Mouse.OverrideCursor = Cursors.Wait;
+                //});
+                //await Task.Delay(5000);
+                //Application.Current.Dispatcher.Invoke(() =>
+                //{
+                //    Mouse.OverrideCursor = null;
+                //});
                 //Prebrzo spremanje postavki
 
                 teamsFromResults = await manager.GetAllTeams();

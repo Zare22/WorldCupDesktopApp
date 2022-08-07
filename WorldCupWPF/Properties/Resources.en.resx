@@ -135,6 +135,9 @@
   <data name="settingsChampionship" xml:space="preserve">
     <value>Choose championship:</value>
   </data>
+  <data name="settingsChoosePlease" xml:space="preserve">
+    <value>Choose championship please</value>
+  </data>
   <data name="settingsCro" xml:space="preserve">
     <value>Croatian language</value>
   </data>

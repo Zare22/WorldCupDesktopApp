@@ -109,11 +109,19 @@ namespace WorldCupWPF
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            SaveResolutionToResources();
-            SaveLanguage();
-            RefreshMainWindow();
-            Close();
-            SaveSettingsToResources();
+            if (rbMale.IsChecked.Value == false && rbFemale.IsChecked.Value == false)
+            {
+                MessageBox.Show(Properties.Resources.settingsChoosePlease);
+                return;
+            }
+            else
+            {
+                SaveSettingsToResources();
+                SaveResolutionToResources();
+                SaveLanguage();
+                RefreshMainWindow();
+                Close();
+            }
         }
 
         private void SaveLanguage()
@@ -122,7 +130,18 @@ namespace WorldCupWPF
             Properties.Settings.Default.Save();
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e) => Close();
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            if (rbMale.IsChecked.Value == false && rbFemale.IsChecked.Value == false)
+            {
+                MessageBox.Show(Properties.Resources.settingsChoosePlease);
+                return;
+            }
+            else
+            {
+                Close();
+            }
+        }
 
         private void SaveResolutionToResources()
         {
