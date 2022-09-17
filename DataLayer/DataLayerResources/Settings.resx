@@ -117,23 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Luka MODRIC" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Championship type" xml:space="preserve">
+    <value>Men</value>
   </data>
-  <data name="Danijel SUBASIC" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Ivan RAKITIC" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Nicolas TAGLIAFICO" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Wilfredo CABALLERO" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Lucas BIGLIA" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Language" xml:space="preserve">
+    <value>hr</value>
   </data>
 </root>

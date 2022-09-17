@@ -31,7 +31,8 @@
                 <Setter Property="CornerRadius" Value="5"/>
             </Style>
         </Style.Resources>
-
+        
+        
         <!--<Setter Property="RenderTransform">
             <Setter.Value>
                 <ScaleTransform x:Name="transform" ScaleX="1" ScaleY="1"/>

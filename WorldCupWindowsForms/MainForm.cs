@@ -81,8 +81,10 @@ namespace WorldCupWindowsForms
             try
             {
                 this.Cursor = Cursors.WaitCursor;
+
                 var teams = await manager.GetAllTeams();
                 teams.ToList().ForEach(t => ddlTeams.Items.Add(t));
+
                 this.Cursor = Cursors.Default;
             }
             catch (Exception)
@@ -114,6 +116,7 @@ namespace WorldCupWindowsForms
             try
             {
                 this.Cursor = Cursors.WaitCursor;
+
                 players = await manager.GetPlayers(GetFifaCode());
                 foreach (var p in players)
                 {
@@ -127,6 +130,7 @@ namespace WorldCupWindowsForms
                         pnlPlayers.Controls.Add(playerControl);
                     }
                 }
+
                 this.Cursor = Cursors.Default;
             }
             catch (Exception)
@@ -144,10 +148,22 @@ namespace WorldCupWindowsForms
             Control parent = multiDnD[0].Parent;
             var startingPanel = (FlowLayoutPanel)sender;
 
+            var nmbrOfFavorites = pnlFavoritePlayers.Controls.Count + multiDnD.Count();
 
-            if (startingPanel != parent && pnlFavoritePlayers.Controls.Count < 3)
+            
+
+            if (startingPanel != parent)
             {
-                e.Effect = DragDropEffects.Move;
+                if (parent.Name == pnlFavoritePlayers.Name)
+                {
+                    e.Effect = DragDropEffects.Move;
+                }
+                else if (nmbrOfFavorites <= 3)
+                {
+                    e.Effect = DragDropEffects.Move;
+                }
+                else
+                    e.Effect = DragDropEffects.None;
             }
             else 
                 e.Effect = DragDropEffects.None;
