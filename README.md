@@ -6,7 +6,7 @@ Data layer is using RestSharp to pull and deserialize JSONs to appropriate model
 APIs:
 <ul>
         <li>http://world-cup-json-2018.herokuapp.com/ for Men World Cup 2018 in Russia</li>
-        <li>and http://worldcup.sfg.io/ for Women World Cup 2019 in France.</li> 
+        <li>http://worldcup.sfg.io/ for Women World Cup 2019 in France.</li> 
 </ul>
 
 Applications are saving settings, favorite teams, players and their images for each team. Settings and favorite teams that were chosen on windows forms will be the same on WPF and vice-versa. <br/>
