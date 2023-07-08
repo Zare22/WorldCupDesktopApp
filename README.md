@@ -2,6 +2,7 @@
 
 Windows forms and WPF applications that are sharing the same data layer.
 Data layer is using RestSharp to pull and deserialize JSONs to appropriate models. In case of internet connection issues, repository will automatically switch to JSONs that are inside of the project.<br/>
+APIs have changed so it currently works only when internet is off.
 
 APIs:
 <ul>
